@@ -1,0 +1,2920 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>🏆 شومبول • لیدر بورد</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 720px;
+            width: 100%;
+            background: #111111;
+            border-radius: 20px;
+            padding: 24px 20px 28px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+            border: 1px solid rgba(255, 215, 0, 0.03);
+            animation: fadeUp 0.6s ease-out;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* ===== بقیه استایل‌های سایت ===== */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header .logo-icon {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            display: block;
+            margin-bottom: 2px;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+        .header h1 {
+            font-size: clamp(1.8rem, 6vw, 2.8rem);
+            font-weight: 900;
+            color: #ffd700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .header h1 small {
+            font-size: clamp(0.65rem, 1.8vw, 0.85rem);
+            background: #ffd700;
+            color: #0a0a0a;
+            padding: 2px 16px;
+            border-radius: 60px;
+            font-weight: 700;
+        }
+        .header .sub {
+            color: #87ceeb;
+            font-size: clamp(0.7rem, 1.8vw, 0.85rem);
+            font-weight: 300;
+            border-bottom: 1px solid rgba(135, 206, 235, 0.08);
+            padding-bottom: 14px;
+            margin-top: 2px;
+        }
+
+        .card {
+            background: #1a1a1a;
+            border-radius: 16px;
+            padding: 18px 16px;
+            margin-bottom: 14px;
+            border: 1px solid rgba(135, 206, 235, 0.04);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .minecraft-section {
+            background: #1a1a1a;
+            border-radius: 16px;
+            padding: 18px 16px;
+            margin-bottom: 14px;
+            border: 1px solid rgba(135, 206, 235, 0.04);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .minecraft-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(135, 206, 235, 0.02), transparent 70%);
+            animation: rotateGlow 20s linear infinite;
+        }
+        @keyframes rotateGlow {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        .minecraft-section .mc-title {
+            color: #87ceeb;
+            font-size: clamp(0.65rem, 1.6vw, 0.75rem);
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+        .minecraft-section .mc-ip {
+            font-size: clamp(1.4rem, 4vw, 2rem);
+            font-weight: 800;
+            color: #ffd700;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+        .mc-gamemodes {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+        .mc-gamemode {
+            background: rgba(135, 206, 235, 0.03);
+            border: 1px solid rgba(135, 206, 235, 0.04);
+            padding: 6px 18px;
+            border-radius: 60px;
+            font-size: clamp(0.7rem, 1.6vw, 0.8rem);
+            font-weight: 600;
+            color: #87ceeb;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: default;
+        }
+        .mc-gamemode:hover {
+            background: rgba(255, 215, 0, 0.04);
+            border-color: rgba(255, 215, 0, 0.06);
+            transform: translateY(-2px);
+            color: #ffd700;
+        }
+        .mc-gamemode .icon {
+            margin-left: 6px;
+        }
+        .mc-status {
+            margin-top: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: clamp(0.6rem, 1.4vw, 0.7rem);
+            color: #87ceeb;
+            position: relative;
+            z-index: 1;
+        }
+        .mc-status .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #ffd700;
+            animation: pulse-dot 2s ease-in-out infinite;
+            display: inline-block;
+        }
+        @keyframes pulse-dot {
+            0%,
+            100% {
+                opacity: 0.2;
+                transform: scale(0.8);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        .login-card {
+            background: #1a1a1a;
+            border: 1px solid rgba(135, 206, 235, 0.04);
+            border-radius: 16px;
+            padding: 22px 18px;
+            margin-bottom: 14px;
+        }
+        .login-card .login-title {
+            color: #87ceeb;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 14px;
+            letter-spacing: 1px;
+        }
+        .login-card .login-title span {
+            color: #ffd700;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .input-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .input-row input {
+            flex: 2;
+            min-width: 120px;
+            padding: 14px 20px;
+            border-radius: 60px;
+            border: 1px solid rgba(135, 206, 235, 0.04);
+            background: #0a0a0a;
+            color: #ffffff;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            outline: 2px solid transparent;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-weight: 400;
+        }
+        .input-row input:focus {
+            outline: 2px solid rgba(255, 215, 0, 0.08);
+            background: #0a0a0a;
+            border-color: rgba(255, 215, 0, 0.06);
+        }
+        .input-row input::placeholder {
+            color: #87ceeb;
+            font-weight: 300;
+        }
+        .btn-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .btn {
+            padding: 14px 22px;
+            border-radius: 60px;
+            border: none;
+            font-weight: 700;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            flex: 1;
+            min-width: 80px;
+            text-align: center;
+            touch-action: manipulation;
+            user-select: none;
+        }
+        .btn-primary {
+            background: #ffd700;
+            color: #0a0a0a;
+            box-shadow: 0 4px 30px rgba(255, 215, 0, 0.08);
+        }
+        .btn-primary:active {
+            transform: scale(0.97);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid rgba(135, 206, 235, 0.08);
+            color: #87ceeb;
+            box-shadow: none;
+        }
+        .btn-outline:active {
+            background: rgba(135, 206, 235, 0.02);
+            transform: scale(0.97);
+        }
+        .btn-success {
+            background: rgba(123, 237, 159, 0.08);
+            border: 1px solid rgba(123, 237, 159, 0.04);
+            color: #87ceeb;
+            box-shadow: none;
+        }
+        .btn-danger {
+            background: rgba(255, 107, 107, 0.08);
+            border: 1px solid rgba(255, 107, 107, 0.04);
+            color: #87ceeb;
+            box-shadow: none;
+        }
+        .btn-glow {
+            background: #ffd700;
+            color: #0a0a0a;
+        }
+        .btn-glow:active {
+            transform: scale(0.97);
+        }
+        .btn:disabled {
+            opacity: 0.1;
+            transform: scale(0.98);
+            pointer-events: none;
+        }
+        .login-hint {
+            font-size: clamp(0.55rem, 1.4vw, 0.65rem);
+            color: #87ceeb;
+            padding-right: 8px;
+            margin-top: 6px;
+            text-align: center;
+        }
+
+        .welcome-box {
+            background: #1a1a1a;
+            border-radius: 60px;
+            padding: 14px 20px;
+            text-align: center;
+            border: 1px solid rgba(135, 206, 235, 0.04);
+            margin: 8px 0 14px;
+        }
+        .welcome-box .greeting {
+            color: #87ceeb;
+            font-weight: 600;
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+        }
+        .welcome-box .greeting span {
+            color: #ffd700;
+        }
+        .inline-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .badge {
+            padding: 4px 16px;
+            border-radius: 60px;
+            font-size: clamp(0.65rem, 1.6vw, 0.75rem);
+            font-weight: 600;
+            background: rgba(135, 206, 235, 0.03);
+            color: #87ceeb;
+            border: 1px solid rgba(135, 206, 235, 0.04);
+        }
+        .badge-admin {
+            background: rgba(255, 215, 0, 0.06);
+            color: #ffd700;
+            border-color: rgba(255, 215, 0, 0.06);
+        }
+        .logout-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 107, 107, 0.06);
+            color: #87ceeb;
+            padding: 6px 18px;
+            border-radius: 60px;
+            cursor: pointer;
+            font-size: clamp(0.65rem, 1.6vw, 0.75rem);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            touch-action: manipulation;
+        }
+        .logout-btn:active {
+            background: rgba(255, 107, 107, 0.02);
+        }
+
+        .score-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .score-row .label {
+            color: #87ceeb;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            font-weight: 400;
+        }
+        .score-row .score-num {
+            font-size: clamp(1.6rem, 4.5vw, 2.2rem);
+            font-weight: 900;
+            color: #ffd700;
+        }
+        .score-badge {
+            background: rgba(255, 215, 0, 0.02);
+            padding: 4px 16px;
+            border-radius: 60px;
+            color: #87ceeb;
+            font-weight: 500;
+            border: 1px solid rgba(255, 215, 0, 0.02);
+            font-size: clamp(0.65rem, 1.6vw, 0.75rem);
+        }
+        .highlight {
+            background: rgba(255, 215, 0, 0.04);
+            border-radius: 40px;
+            padding: 2px 14px;
+            font-weight: 700;
+            color: #ffd700;
+        }
+        .shombul-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+        .shombul-row .btn {
+            flex: 2;
+            min-width: 160px;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            padding: 16px 24px;
+        }
+        .shombul-row .status {
+            color: #87ceeb;
+            font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+            font-weight: 300;
+        }
+
+        .leaderboard-wrapper {
+            position: relative;
+        }
+        .leaderboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 0 4px;
+        }
+        .leaderboard-header .lb-title {
+            color: #87ceeb;
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            font-weight: 700;
+        }
+        .leaderboard-header .lb-title span {
+            color: #ffd700;
+        }
+        .leaderboard-header .lb-count {
+            color: #87ceeb;
+            font-size: clamp(0.6rem, 1.4vw, 0.7rem);
+            font-weight: 300;
+            background: rgba(135, 206, 235, 0.02);
+            padding: 2px 14px;
+            border-radius: 60px;
+            border: 1px solid rgba(135, 206, 235, 0.02);
+        }
+        .leaderboard {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .leaderboard li {
+            background: #0a0a0a;
+            padding: 12px 16px;
+            border-radius: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(135, 206, 235, 0.03);
+            color: #87ceeb;
+            font-weight: 500;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-size: clamp(0.85rem, 2vw, 1rem);
+        }
+        .leaderboard li:hover {
+            border-color: rgba(255, 215, 0, 0.06);
+            transform: translateX(-3px);
+            background: #0a0a0a;
+        }
+        .leaderboard li .rank {
+            background: rgba(135, 206, 235, 0.04);
+            color: #87ceeb;
+            width: 30px;
+            height: 30px;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: clamp(0.7rem, 1.6vw, 0.8rem);
+            flex-shrink: 0;
+            border: 1px solid rgba(135, 206, 235, 0.03);
+            margin-left: 10px;
+        }
+        .leaderboard li .rank.top1 {
+            background: rgba(255, 215, 0, 0.12);
+            color: #ffd700;
+            border-color: rgba(255, 215, 0, 0.06);
+        }
+        .leaderboard li .rank.top2 {
+            background: rgba(192, 192, 192, 0.06);
+            color: #87ceeb;
+            border-color: rgba(192, 192, 192, 0.03);
+        }
+        .leaderboard li .rank.top3 {
+            background: rgba(205, 127, 50, 0.06);
+            color: #87ceeb;
+            border-color: rgba(205, 127, 50, 0.03);
+        }
+        .leaderboard li .name {
+            flex: 1;
+            margin-right: 10px;
+            margin-left: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-weight: 500;
+            color: #ffffff;
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            text-align: right;
+        }
+        .leaderboard li .name .admin-tag {
+            font-size: 0.6rem;
+            color: #ffd700;
+            margin-right: 6px;
+            font-weight: 400;
+        }
+        .leaderboard li .name .rank-badge {
+            font-size: 0.55rem;
+            padding: 1px 8px;
+            border-radius: 60px;
+            margin-right: 4px;
+            font-weight: 700;
+            display: inline-block;
+        }
+        .leaderboard li .name .rank-badge.silver {
+            background: rgba(192, 192, 192, 0.15);
+            color: #c0c0c0;
+            border: 1px solid rgba(192, 192, 192, 0.1);
+        }
+        .leaderboard li .name .rank-badge.gold {
+            background: rgba(255, 215, 0, 0.15);
+            color: #ffd700;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        .leaderboard li .name .rank-badge.platinum {
+            background: rgba(229, 228, 226, 0.12);
+            color: #e5e4e2;
+            border: 1px solid rgba(229, 228, 226, 0.08);
+        }
+        .leaderboard li .score {
+            background: rgba(255, 215, 0, 0.02);
+            padding: 4px 16px;
+            border-radius: 60px;
+            font-weight: 700;
+            color: #87ceeb;
+            border: 1px solid rgba(255, 215, 0, 0.02);
+            font-size: clamp(0.7rem, 1.6vw, 0.85rem);
+            flex-shrink: 0;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            min-width: 50px;
+        }
+        .leaderboard li .score.high {
+            color: #ffd700;
+            border-color: rgba(255, 215, 0, 0.04);
+            background: rgba(255, 215, 0, 0.02);
+        }
+        .empty-state {
+            text-align: center;
+            color: #87ceeb;
+            padding: 28px 0;
+            font-style: italic;
+            font-weight: 300;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            width: 100%;
+        }
+
+        .gallery-section {
+            margin-top: 14px;
+        }
+        .gallery-section .gallery-title {
+            color: #ffd700;
+            font-weight: 700;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 10px;
+        }
+        .gallery-item {
+            background: #0a0a0a;
+            border-radius: 12px;
+            padding: 8px;
+            border: 1px solid rgba(135, 206, 235, 0.03);
+            transition: all 0.3s;
+            position: relative;
+            aspect-ratio: 1/1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .gallery-item .lock-icon {
+            font-size: 2rem;
+            color: #87ceeb;
+            opacity: 0.3;
+        }
+        .gallery-item .buy-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            opacity: 0;
+            transition: all 0.3s;
+            border-radius: 12px;
+        }
+        .gallery-item:hover .buy-overlay {
+            opacity: 1;
+        }
+        .gallery-item .buy-overlay .price-tag {
+            color: #ffd700;
+            font-weight: 700;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+        }
+        .gallery-item .buy-overlay .btn-buy-gallery {
+            background: #ffd700;
+            color: #0a0a0a;
+            border: none;
+            padding: 4px 18px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .gallery-item .buy-overlay .btn-buy-gallery:active {
+            transform: scale(0.95);
+        }
+        .gallery-item .bought-badge {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #ffd700;
+            font-size: 0.6rem;
+            padding: 2px 10px;
+            border-radius: 60px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .rank-shop-section {
+            margin-top: 14px;
+            background: rgba(135, 206, 235, 0.005);
+            border-radius: 20px;
+            padding: 14px 12px;
+            border: 1px solid rgba(135, 206, 235, 0.02);
+        }
+        .rank-shop-section .rank-title {
+            color: #ffd700;
+            font-weight: 700;
+            font-size: clamp(0.9rem, 2.2vw, 1rem);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .rank-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
+        }
+        .rank-card {
+            background: #0a0a0a;
+            border-radius: 16px;
+            padding: 14px 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.04);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .rank-card .rank-icon {
+            font-size: 2.2rem;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .rank-card .rank-name {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+        .rank-card .rank-price {
+            color: #ffd700;
+            font-weight: 600;
+            font-size: clamp(0.7rem, 1.6vw, 0.8rem);
+            margin: 4px 0;
+        }
+        .rank-card .rank-boost {
+            color: #87ceeb;
+            font-size: clamp(0.65rem, 1.5vw, 0.75rem);
+            font-weight: 300;
+        }
+        .rank-card .rank-features {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: clamp(0.55rem, 1.2vw, 0.65rem);
+            margin: 6px 0;
+            line-height: 1.6;
+        }
+        .rank-card .rank-features span {
+            display: block;
+            color: rgba(255, 255, 255, 0.2);
+        }
+        .rank-card .btn-buy-rank {
+            margin-top: 8px;
+            padding: 6px 20px;
+            border-radius: 60px;
+            border: 1px solid rgba(255, 215, 0, 0.04);
+            background: rgba(255, 215, 0, 0.02);
+            color: #87ceeb;
+            font-size: clamp(0.7rem, 1.6vw, 0.8rem);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            width: 100%;
+        }
+        .rank-card .btn-buy-rank:active {
+            background: rgba(255, 215, 0, 0.04);
+            transform: scale(0.96);
+        }
+        .rank-card .btn-buy-rank:disabled {
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .admin-panel {
+            background: #0a0a0a;
+            border-radius: 24px;
+            padding: 16px;
+            border: 1px solid rgba(135, 206, 235, 0.03);
+            margin-top: 12px;
+        }
+        .admin-panel .admin-title {
+            color: #87ceeb;
+            font-weight: 700;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .admin-panel .admin-title .lock {
+            font-size: 0.7rem;
+            background: rgba(255, 215, 0, 0.02);
+            padding: 2px 12px;
+            border-radius: 60px;
+            color: #87ceeb;
+            border: 1px solid rgba(255, 215, 0, 0.02);
+        }
+        .admin-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            align-items: center;
+        }
+        .admin-row input {
+            flex: 2;
+            min-width: 80px;
+            padding: 10px 16px;
+            border-radius: 60px;
+            border: 1px solid rgba(135, 206, 235, 0.03);
+            background: #0a0a0a;
+            color: #ffffff;
+            font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+            outline: 2px solid transparent;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .admin-row input:focus {
+            outline: 2px solid rgba(255, 215, 0, 0.04);
+            border-color: rgba(255, 215, 0, 0.04);
+        }
+        .admin-row .btn {
+            flex: 0.7;
+            min-width: 70px;
+            padding: 10px 14px;
+            font-size: clamp(0.7rem, 1.6vw, 0.8rem);
+        }
+
+        .shop-section {
+            margin-top: 14px;
+            background: rgba(135, 206, 235, 0.005);
+            border-radius: 20px;
+            padding: 14px 12px;
+            border: 1px solid rgba(135, 206, 235, 0.02);
+        }
+        .shop-section .shop-title {
+            color: #87ceeb;
+            font-weight: 600;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+        }
+        .shop-item {
+            background: #0a0a0a;
+            border-radius: 16px;
+            padding: 14px 12px;
+            text-align: center;
+            border: 1px solid rgba(135, 206, 235, 0.02);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+        }
+        .shop-item .item-icon {
+            font-size: 2rem;
+            margin-bottom: 4px;
+            display: block;
+        }
+        .shop-item .item-name {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+        }
+        .shop-item .item-price {
+            color: #ffd700;
+            font-weight: 700;
+            font-size: clamp(0.65rem, 1.6vw, 0.75rem);
+            margin-top: 4px;
+        }
+        .shop-item .item-desc {
+            color: #87ceeb;
+            font-size: clamp(0.55rem, 1.4vw, 0.65rem);
+            font-weight: 300;
+            margin-top: 2px;
+        }
+        .shop-item .btn-buy {
+            margin-top: 8px;
+            padding: 6px 16px;
+            border-radius: 60px;
+            border: 1px solid rgba(135, 206, 235, 0.03);
+            background: rgba(135, 206, 235, 0.02);
+            color: #87ceeb;
+            font-size: clamp(0.65rem, 1.6vw, 0.75rem);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            width: 100%;
+        }
+        .shop-item .btn-buy:active {
+            background: rgba(255, 215, 0, 0.02);
+        }
+        .shop-item .btn-buy:disabled {
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .buy-link-section {
+            margin-top: 14px;
+            padding: 14px 16px;
+            background: rgba(135, 206, 235, 0.005);
+            border-radius: 20px;
+            border: 1px solid rgba(135, 206, 235, 0.02);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .buy-link-section .buy-link {
+            display: inline-block;
+            color: #87ceeb;
+            font-size: clamp(0.7rem, 1.8vw, 0.8rem);
+            font-weight: 600;
+            text-decoration: none;
+            padding: 6px 20px;
+            border-radius: 60px;
+            border: 1px solid rgba(135, 206, 235, 0.04);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+            background: transparent;
+            font-family: inherit;
+        }
+        .buy-link-section .buy-link:active {
+            transform: scale(0.97);
+            background: rgba(255, 215, 0, 0.02);
+        }
+        .buy-link-section .buy-link .link-icon {
+            margin-left: 6px;
+        }
+        .buy-link-section .link-label {
+            color: #87ceeb;
+            font-size: clamp(0.55rem, 1.4vw, 0.65rem);
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            padding-top: 18px;
+            border-top: 1px solid rgba(135, 206, 235, 0.02);
+        }
+        .footer .footer-brand {
+            font-size: clamp(0.75rem, 2vw, 0.9rem);
+            font-weight: 700;
+            color: #ffd700;
+            letter-spacing: 1px;
+        }
+        .footer .footer-divider {
+            color: #87ceeb;
+            font-size: clamp(0.6rem, 1.4vw, 0.7rem);
+            margin: 4px 0;
+            letter-spacing: 2px;
+        }
+        .footer .footer-thanks {
+            color: #87ceeb;
+            font-size: clamp(0.55rem, 1.4vw, 0.65rem);
+            font-weight: 300;
+        }
+        .footer .footer-thanks span {
+            color: #ffd700;
+        }
+        .footer .footer-powered {
+            color: #87ceeb;
+            font-size: clamp(0.5rem, 1.2vw, 0.6rem);
+            font-weight: 300;
+            margin-top: 4px;
+            letter-spacing: 1px;
+        }
+        .footer .footer-powered .shombul-text {
+            color: #ffd700;
+            font-weight: 700;
+        }
+        .footer .footer-pain {
+            color: #87ceeb;
+            font-size: clamp(0.5rem, 1.2vw, 0.6rem);
+            font-weight: 300;
+            margin-top: 2px;
+            font-style: italic;
+        }
+        .footer-btn {
+            margin-top: 8px;
+            display: flex;
+            justify-content: center;
+        }
+        .footer-btn .btn {
+            max-width: 200px;
+            flex: none;
+            padding: 8px 28px;
+            background: rgba(135, 206, 235, 0.01);
+            border: 1px solid rgba(135, 206, 235, 0.02);
+            color: #87ceeb;
+            font-size: clamp(0.6rem, 1.4vw, 0.7rem);
+            box-shadow: none;
+            font-weight: 400;
+        }
+
+        /* ===== ربات چت ===== */
+        .chatbot-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffd700, #f7c948);
+            color: #0a0a0a;
+            font-size: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.15);
+            z-index: 9998;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 215, 0, 0.1);
+            user-select: none;
+        }
+        .chatbot-toggle:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 40px rgba(255, 215, 0, 0.25);
+        }
+        .chatbot-toggle:active {
+            transform: scale(0.95);
+        }
+
+        .chatbot-window {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            width: 380px;
+            max-width: 90vw;
+            height: 500px;
+            max-height: 80vh;
+            background: #1a1a1a;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.04);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            animation: slideUp 0.3s ease-out;
+        }
+        .chatbot-window.open {
+            display: flex;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .chatbot-header {
+            padding: 16px 18px;
+            background: linear-gradient(135deg, #ffd700, #f7c948);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .chatbot-header .title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #0a0a0a;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .chatbot-header .close-btn {
+            background: transparent;
+            border: none;
+            color: #0a0a0a;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: all 0.3s;
+        }
+        .chatbot-header .close-btn:hover {
+            opacity: 1;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: #0a0a0a;
+        }
+        .chatbot-messages::-webkit-scrollbar {
+            width: 4px;
+        }
+        .chatbot-messages::-webkit-scrollbar-thumb {
+            background: rgba(255, 215, 0, 0.08);
+            border-radius: 10px;
+        }
+
+        .chatbot-messages .msg {
+            max-width: 85%;
+            padding: 10px 14px;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            word-wrap: break-word;
+        }
+        .chatbot-messages .msg.bot {
+            background: #1a1a1a;
+            color: #eaf2fb;
+            border: 1px solid rgba(135, 206, 235, 0.04);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+        .chatbot-messages .msg.user {
+            background: #ffd700;
+            color: #0a0a0a;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+        .chatbot-messages .msg .time {
+            font-size: 0.6rem;
+            opacity: 0.3;
+            margin-top: 4px;
+            display: block;
+        }
+        .chatbot-messages .typing {
+            color: rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            align-self: flex-start;
+            padding: 8px 14px;
+        }
+
+        .chatbot-input-area {
+            padding: 12px 16px;
+            border-top: 1px solid rgba(135, 206, 235, 0.02);
+            display: flex;
+            gap: 8px;
+            flex-shrink: 0;
+            background: #0a0a0a;
+        }
+        .chatbot-input-area input {
+            flex: 1;
+            padding: 10px 16px;
+            border-radius: 60px;
+            border: 1px solid rgba(135, 206, 235, 0.04);
+            background: #1a1a1a;
+            color: #ffffff;
+            font-size: 0.9rem;
+            outline: 2px solid transparent;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+        .chatbot-input-area input:focus {
+            outline: 2px solid rgba(255, 215, 0, 0.04);
+            border-color: rgba(255, 215, 0, 0.04);
+        }
+        .chatbot-input-area input::placeholder {
+            color: rgba(255, 255, 255, 0.08);
+        }
+        .chatbot-input-area .send-btn {
+            padding: 10px 20px;
+            border-radius: 60px;
+            border: none;
+            background: #ffd700;
+            color: #0a0a0a;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .chatbot-input-area .send-btn:active {
+            transform: scale(0.95);
+        }
+
+        @media (max-width: 480px) {
+            .chatbot-window {
+                bottom: 80px;
+                right: 10px;
+                width: calc(100vw - 20px);
+                height: 70vh;
+            }
+            .chatbot-toggle {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="app">
+
+        <!-- ===== هدر ===== -->
+        <div class="header">
+            <span class="logo-icon">⛏️</span>
+            <h1>🏆 لیدر بورد <small>شومبول</small></h1>
+            <div class="sub">⭐ هر کاربر فقط ۱ بار در روز • رشد ۱ تا ۱۲</div>
+        </div>
+
+        <!-- ===== ماینکرفت ===== -->
+        <div class="minecraft-section">
+            <div class="mc-title">⛏️ سرور ماینکرفت</div>
+            <div class="mc-ip">🔮 coming soon</div>
+            <div class="mc-gamemodes">
+                <span class="mc-gamemode"><span class="icon">⚔️</span>بدوارز</span>
+                <span class="mc-gamemode"><span class="icon">🌍</span>اس ام پی</span>
+                <span class="mc-gamemode"><span class="icon">🎯</span>پرکتیس</span>
+            </div>
+            <div class="mc-status">
+                <span class="dot"></span>
+                <span>در حال آماده‌سازی...</span>
+            </div>
+        </div>
+
+        <!-- ===== لاگین ===== -->
+        <div id="authSection" class="login-card">
+            <div class="login-title">🔐 <span>ورود / ثبت نام</span></div>
+            <div class="input-group">
+                <div class="input-row">
+                    <input type="text" id="usernameInput" placeholder="👤 نام کاربری" maxlength="20" inputmode="text">
+                    <input type="password" id="passwordInput" placeholder="🔑 رمز عبور" maxlength="30">
+                </div>
+                <div class="btn-row">
+                    <button class="btn btn-primary" id="loginBtn">🔐 ورود</button>
+                    <button class="btn btn-outline" id="registerBtn">📝 ثبت نام</button>
+                </div>
+                <div class="login-hint">💡 ثبت نام کن یا با اکانت خود وارد شو</div>
+            </div>
+        </div>
+
+        <!-- ===== بخش کاربر ===== -->
+        <div id="welcomeSection" style="display: none;">
+
+            <div class="welcome-box">
+                <div class="inline-flex">
+                    <span class="greeting">👋 خوش آمدی <span id="greetingUser">کاربر</span> 🎉</span>
+                    <span id="userRoleBadge" class="badge">👤 کاربر</span>
+                    <button class="logout-btn" id="logoutBtn">🚪 خروج</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="shombul-row">
+                    <button class="btn btn-glow" id="shombulBtn">💥 شومبول بزن</button>
+                    <span class="status" id="dailyStatus">✅ امروز: ۰ بار</span>
+                </div>
+                <div class="score-row">
+                    <span class="label">⭐ امتیاز شما: <strong class="score-num" id="currentUserScore">۰</strong></span>
+                    <span class="score-badge">🔥 رشد ۱ تا ۱۲</span>
+                </div>
+                <div id="lastShombulResult" style="margin-top:10px; font-size:clamp(0.8rem,2vw,0.9rem); color:#87ceeb; text-align:center; min-height:26px; font-weight:300;">
+                    💫 روی دکمه بزن تا شومبول کنی
+                </div>
+            </div>
+
+            <div class="gallery-section card">
+                <div class="gallery-title">🖼️ گالری عکس‌ها</div>
+                <div class="gallery-grid" id="galleryGrid"></div>
+                <div style="margin-top:8px; font-size:clamp(0.55rem,1.4vw,0.65rem); color:#87ceeb; text-align:center;">
+                    💰 هر عکس ۱۰۰۰ شومبول
+                </div>
+            </div>
+
+            <div class="rank-shop-section" id="rankShop">
+                <div class="rank-title">👑 خرید رنک شومبول</div>
+                <div class="rank-grid" id="rankGrid"></div>
+                <div style="margin-top:8px; font-size:clamp(0.55rem,1.4vw,0.65rem); color:#87ceeb; text-align:center;">
+                    💰 با امتیازت رنک بخر و بوستر بگیر
+                </div>
+            </div>
+
+            <div class="shop-section" id="shopSection">
+                <div class="shop-title">🛒 فروشگاه • آیتم‌های ویژه</div>
+                <div class="shop-grid" id="shopGrid"></div>
+                <div style="margin-top:8px; font-size:clamp(0.55rem,1.4vw,0.65rem); color:#87ceeb; text-align:center;">
+                    💰 با امتیازت از فروشگاه بخر
+                </div>
+            </div>
+
+            <div class="buy-link-section" id="buyLinkSection">
+                <div class="link-label">📦 برای خرید آیتم‌ها</div>
+                <button class="buy-link" id="showBuyModalBtn">
+                    <span class="link-icon">🛍️</span> کلیک کن ← mr_donbe9999999
+                </button>
+            </div>
+
+            <div id="adminPanel" class="admin-panel" style="display: none;">
+                <div class="admin-title">🔧 پنل ادمین <span class="lock">🔒 فقط owner</span></div>
+
+                <div style="margin-bottom:12px; padding:10px; background:rgba(135,206,235,0.02); border-radius:12px; border:1px solid rgba(135,206,235,0.03);">
+                    <div style="color:#87ceeb; font-weight:600; font-size:0.85rem; margin-bottom:6px;">📤 آپلود عکس جدید</div>
+                    <div class="admin-row">
+                        <input type="text" id="adminPhotoName" placeholder="نام عکس" style="flex:1;">
+                        <input type="file" id="adminPhotoFile" accept="image/*" style="flex:2; color:#87ceeb; background:#0a0a0a; border:1px solid rgba(135,206,235,0.03); border-radius:60px; padding:8px 14px; font-size:0.75rem;">
+                        <button class="btn btn-success" id="adminUploadPhotoBtn" style="flex:0.5; min-width:60px;">➕ آپلود</button>
+                    </div>
+                    <div style="font-size:0.65rem; color:#87ceeb; margin-top:4px;">🔹 عکس با فرمت JPG/PNG • حداکثر ۲ مگابایت</div>
+                </div>
+
+                <div class="admin-title" style="margin-top:6px;">🔧 مدیریت کاربران</div>
+                <div class="admin-row">
+                    <input type="text" id="adminUserInput" placeholder="نام کاربر" inputmode="text">
+                    <input type="number" id="adminScoreInput" placeholder="امتیاز" min="1" max="999" inputmode="numeric" style="max-width:100px;">
+                    <button class="btn btn-success" id="adminAddScoreBtn">➕ افزودن</button>
+                    <button class="btn btn-danger" id="adminRemoveScoreBtn">➖ کم کردن</button>
+                </div>
+                <div style="font-size:clamp(0.55rem,1.4vw,0.65rem); color:#87ceeb; margin-top:4px;">
+                    💡 به کاربر انتخاب‌شده امتیاز اضافه یا کم کن
+                </div>
+
+                <div style="margin-top:10px; padding-top:10px; border-top:1px solid rgba(135,206,235,0.03);">
+                    <div style="color:#ff4444; font-weight:600; font-size:0.85rem; margin-bottom:6px;">🚫 مدیریت بن</div>
+                    <div class="admin-row">
+                        <input type="text" id="banUserInput" placeholder="نام کاربر" style="flex:1;">
+                        <input type="text" id="banReasonInput" placeholder="دلیل بن" style="flex:2;">
+                        <button class="btn btn-danger" id="banUserBtn" style="flex:0.5; min-width:60px; background:#ff4444; color:#fff;">⛔ بن</button>
+                        <button class="btn btn-outline" id="unbanUserBtn" style="flex:0.5; min-width:60px;">✅ آنبن</button>
+                    </div>
+                    <div style="font-size:0.65rem; color:#87ceeb; margin-top:4px;">🔹 با بن شدن، امتیاز کاربر صفر میشه و نمی‌تونه وارد بشه</div>
+                </div>
+
+                <div style="margin-top:10px; padding-top:10px; border-top:1px solid rgba(135,206,235,0.03);">
+                    <button class="btn btn-danger" id="resetAllBtn" style="background:#ff4444; color:#fff; box-shadow:0 4px 20px rgba(255,0,0,0.1);">🔄 ریست کامل</button>
+                    <div style="font-size:0.6rem; color:#87ceeb; margin-top:4px;">⚠️ همه کاربران و امتیازها حذف میشن (فقط owner میمونه)</div>
+                </div>
+            </div>
+
+            <div id="adminConsole" class="console-terminal" style="display:none; background:#0a0a0a; border-radius:16px; padding:12px 14px; margin-top:12px; border:1px solid rgba(135,206,235,0.02);">
+                <div class="console-header" style="display:flex; justify-content:space-between; color:#87ceeb; font-size:0.7rem; border-bottom:1px solid rgba(135,206,235,0.02); padding-bottom:6px; margin-bottom:6px;">
+                    <span>💻 CONSOLE • owner</span>
+                    <button class="console-clear-btn" id="consoleClearBtn" style="background:transparent; border:none; color:rgba(135,206,235,0.3); cursor:pointer; font-size:0.65rem;">پاک کردن</button>
+                </div>
+                <div class="console-body" id="consoleBody" style="font-family:'Courier New',monospace; color:#87ceeb; font-size:0.75rem; max-height:150px; overflow-y:auto; line-height:1.6; padding:2px 0;">
+                    <div class="log-line"><span class="time">[System]</span> <span class="result">✅ ترمینال ادمین آماده است</span></div>
+                    <div class="log-line"><span class="time">[System]</span> <span class="cmd">💡 دستورات: help, users, add/remove [user] [score], top, shop, ranks, ban [user] [دلیل], unban [user], give_rank [user] [rank]</span></div>
+                </div>
+                <div class="console-input-row" style="display:flex; gap:6px; margin-top:6px; border-top:1px solid rgba(135,206,235,0.02); padding-top:6px;">
+                    <input type="text" id="consoleInput" placeholder="دستور..." spellcheck="false" inputmode="text" style="flex:1; background:#0a0a0a; border:1px solid rgba(135,206,235,0.02); border-radius:30px; padding:6px 14px; color:#fff; font-family:'Courier New',monospace; font-size:0.75rem; outline:none;">
+                    <button id="consoleSendBtn" style="background:rgba(135,206,235,0.01); border:1px solid rgba(135,206,235,0.02); color:#87ceeb; border-radius:30px; padding:6px 16px; cursor:pointer; font-size:0.75rem; font-weight:700;">▶</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ===== لیدر بورد ===== -->
+        <div class="card">
+            <div class="leaderboard-wrapper">
+                <div class="leaderboard-header">
+                    <div class="lb-title">🥇 <span>رده‌بندی</span></div>
+                    <div class="lb-count" id="userCount">۰ کاربر</div>
+                </div>
+                <ul class="leaderboard" id="leaderboardList">
+                    <li class="empty-state">📭 هنوز کسی امتیاز نگرفته</li>
+                </ul>
+                <div style="display:flex; gap:8px; justify-content:center; margin-top:12px;">
+                    <button class="btn btn-outline" id="refreshBoardBtn" style="padding:8px 24px; font-size:clamp(0.7rem,1.6vw,0.8rem);">🔄 تازه‌سازی</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-btn">
+            <button class="btn" id="footerInfoBtn">✨ ساخته شده با ❤️</button>
+        </div>
+
+        <div class="footer">
+            <div class="footer-brand">✦ ساخته شده توسط دنبه ✦</div>
+            <div class="footer-divider">• • •</div>
+            <div class="footer-thanks">با تشکر از <span>Qasedak</span></div>
+            <div class="footer-powered">قدرت گرفته از <span class="shombul-text">شومبول</span></div>
+            <div class="footer-pain">💔 شومبولم درد میکنه...</div>
+        </div>
+
+    </div>
+
+    <!-- ===== دکمه ربات ===== -->
+    <div class="chatbot-toggle" id="chatToggle">🤖</div>
+
+    <!-- ===== پنجره ربات ===== -->
+    <div class="chatbot-window" id="chatWindow">
+        <div class="chatbot-header">
+            <div class="title">🤖 شومبول‌بات</div>
+            <button class="close-btn" id="chatClose">✕</button>
+        </div>
+        <div class="chatbot-messages" id="chatMessages">
+            <div class="msg bot">👋 سلام! من شومبول‌بات هستم. هر سوالی داری بپرس! 😊</div>
+        </div>
+        <div class="chatbot-input-area">
+            <input type="text" id="chatInput" placeholder="سوال خود را بپرس..." />
+            <button class="send-btn" id="chatSend">📩</button>
+        </div>
+    </div>
+
+    <!-- ===== مودال خرید ===== -->
+    <div class="modal-overlay" id="buyModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); backdrop-filter:blur(8px); z-index:9999; justify-content:center; align-items:center; padding:20px;">
+        <div class="modal-box" style="background:#111; border:1px solid rgba(255,215,0,0.04); border-radius:32px; padding:32px 28px; max-width:420px; width:100%; text-align:center; box-shadow:0 40px 80px rgba(0,0,0,0.9);">
+            <span class="modal-icon" style="font-size:3.5rem; display:block; margin-bottom:12px;">🛍️</span>
+            <div class="modal-title" style="color:#87ceeb; font-size:1.4rem; font-weight:700; margin-bottom:6px;">برای خرید <span style="color:#ffd700;">آیتم</span></div>
+            <div class="modal-id" style="background:#0a0a0a; border:1px solid rgba(255,215,0,0.04); border-radius:60px; padding:10px 20px; margin:12px 0; display:inline-block; font-size:1.2rem; font-weight:800; color:#ffd700; font-family:'Courier New',monospace;">🔑 mr_donbe9999999</div>
+            <div class="modal-desc" style="color:#87ceeb; font-size:0.85rem; font-weight:300; line-height:1.8; margin:8px 0 16px;">
+                به ایدی بالا <strong style="color:#fff;">پیام بدید</strong> تا خریدتون انجام بشه<br>
+                <span class="highlight-text" style="color:#ffd700; font-weight:500;">همراه با نام کاربری و آیتم مورد نظر</span>
+            </div>
+            <div class="modal-copy" style="margin-top:10px; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                <button class="copy-btn" id="copyIdBtn" style="background:rgba(135,206,235,0.02); border:1px solid rgba(135,206,235,0.03); color:#87ceeb; padding:4px 16px; border-radius:60px; font-size:0.7rem; cursor:pointer;">📋 کپی ایدی</button>
+            </div>
+            <br>
+            <button class="modal-close-btn" id="closeModalBtn" style="background:rgba(135,206,235,0.03); border:1px solid rgba(135,206,235,0.05); color:#87ceeb; padding:10px 32px; border-radius:60px; font-size:0.9rem; font-weight:600; cursor:pointer;">✖ بستن</button>
+        </div>
+    </div>
+
+    <script>
+        // ============================================================
+        // 1. بخش اصلی سایت (امتیاز، لیدر بورد، گالری، رنک، بن، تیکت...)
+        // ============================================================
+        (function() {
+            // کلیدهای ذخیره‌سازی
+            const STORAGE_KEY = 'shombul_leaderboard_data_v3';
+            const RANK_KEY = 'shombul_user_ranks_v3';
+            const RANK_EXPIRE_KEY = 'shombul_rank_expire_v3';
+            const PHOTOS_KEY = 'shombul_gallery_photos_v3';
+            const BOUGHT_KEY = 'shombul_bought_photos_v3';
+            const BAN_KEY = 'shombul_banned_users_v3';
+            const BAN_REASON_KEY = 'shombul_ban_reasons_v3';
+            const TICKET_KEY = 'shombul_tickets_v3';
+
+            // رنک‌ها
+            const RANKS = {
+                'شومبول': { price: 120, boost: 2, icon: '🥉', color: 'silver', label: 'شومبول' },
+                'شومبول+': { price: 230, boost: 7, icon: '🥈', color: 'gold', label: 'شومبول+' },
+                'شومبول++': { price: 1200, boost: 20, icon: '🥇', color: 'platinum', label: 'شومبول++' }
+            };
+
+            const RANK_FEATURES = {
+                'شومبول': ['+۲ امتیاز اضافه', '۷ روز اعتبار', 'نماد نقره‌ای'],
+                'شومبول+': ['+۷ امتیاز اضافه', '۷ روز اعتبار', 'نماد طلایی'],
+                'شومبول++': ['+۲۰ امتیاز اضافه', '۷ روز اعتبار', 'نماد پلاتینیوم']
+            };
+
+            // ===== توابع داده =====
+            function getData() {
+                try {
+                    const raw = localStorage.getItem(STORAGE_KEY);
+                    if (raw) {
+                        const parsed = JSON.parse(raw);
+                        if (parsed && typeof parsed === 'object' && parsed.users) return parsed;
+                    }
+                } catch (e) { console.log('Error loading data:', e); }
+                return { users: {} };
+            }
+
+            function saveData(data) {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+            }
+
+            function getRanks() {
+                try {
+                    const raw = localStorage.getItem(RANK_KEY);
+                    if (raw) {
+                        const parsed = JSON.parse(raw);
+                        if (typeof parsed === 'object') return parsed;
+                    }
+                } catch (e) {}
+                return {};
+            }
+
+            function saveRanks(ranks) {
+                localStorage.setItem(RANK_KEY, JSON.stringify(ranks));
+            }
+
+            function getRankExpire() {
+                try {
+                    const raw = localStorage.getItem(RANK_EXPIRE_KEY);
+                    if (raw) {
+                        const parsed = JSON.parse(raw);
+                        if (typeof parsed === 'object') return parsed;
+                    }
+                } catch (e) {}
+                return {};
+            }
+
+            function saveRankExpire(expire) {
+                localStorage.setItem(RANK_EXPIRE_KEY, JSON.stringify(expire));
+            }
+
+            function getPhotos() {
+                try {
+                    const raw = localStorage.getItem(PHOTOS_KEY);
+                    if (raw) {
+                        const parsed = JSON.parse(raw);
+                        if (Array.isArray(parsed)) return parsed;
+                    }
+                } catch (e) {}
+                return [];
+            }
+
+            function savePhotos(photos) {
+                localStorage.setItem(PHOTOS_KEY, JSON.stringify(photos));
+            }
+
+            function getBought() {
+                try {
+                    const raw = localStorage.getItem(BOUGHT_KEY);
+                    if (raw) {
+                        const parsed = JSON.parse(raw);
+                        if (typeof parsed === 'object') return parsed;
+                    }
+                } catch (e) {}
+                return {};
+            }
+
+            function saveBought(bought) {
+                localStorage.setItem(BOUGHT_KEY, JSON.stringify(bought));
+            }
+
+            function getBanned() {
+                try {
+                    const raw = localStorage.getItem(BAN_KEY);
+                    if (raw) {
+                        const parsed = JSON.parse(raw);
+                        if (Array.isArray(parsed)) return parsed;
+                    }
+                } catch (e) {}
+                return [];
+            }
+
+            function saveBanned(banned) {
+                localStorage.setItem(BAN_KEY, JSON.stringify(banned));
+            }
+
+            function getBanReasons() {
+                try {
+                    const raw = localStorage.getItem(BAN_REASON_KEY);
+                    if (raw) {
+                        const parsed = JSON.parse(raw);
+                        if (typeof parsed === 'object') return parsed;
+                    }
+                } catch (e) {}
+                return {};
+            }
+
+            function saveBanReasons(reasons) {
+                localStorage.setItem(BAN_REASON_KEY, JSON.stringify(reasons));
+            }
+
+            function isUserBanned(username) {
+                const banned = getBanned();
+                return banned.includes(username);
+            }
+
+            function getBanReason(username) {
+                const reasons = getBanReasons();
+                return reasons[username] || 'دلیل مشخص نشده';
+            }
+
+            function getTickets() {
+                try {
+                    const raw = localStorage.getItem(TICKET_KEY);
+                    if (raw) {
+                        const parsed = JSON.parse(raw);
+                        if (Array.isArray(parsed)) return parsed;
+                    }
+                } catch (e) {}
+                return [];
+            }
+
+            function saveTickets(tickets) {
+                localStorage.setItem(TICKET_KEY, JSON.stringify(tickets));
+            }
+
+            function addTicket(username, message) {
+                const tickets = getTickets();
+                tickets.push({
+                    id: Date.now(),
+                    username: username,
+                    message: message,
+                    time: new Date().toISOString(),
+                    answer: null,
+                    answeredAt: null,
+                    answeredBy: null
+                });
+                saveTickets(tickets);
+                return tickets;
+            }
+
+            function answerTicket(ticketId, answer, adminName) {
+                const tickets = getTickets();
+                const idx = tickets.findIndex(t => t.id === ticketId);
+                if (idx === -1) return null;
+                tickets[idx].answer = answer;
+                tickets[idx].answeredAt = new Date().toISOString();
+                tickets[idx].answeredBy = adminName;
+                saveTickets(tickets);
+                return tickets[idx];
+            }
+
+            function getTicketCount() {
+                const tickets = getTickets();
+                return tickets.filter(t => !t.answer).length;
+            }
+
+            // ===== owner =====
+            function ensureOwner() {
+                const data = getData();
+                const ownerUser = 'owner';
+                const ownerPass = 'https';
+                if (!data.users[ownerUser]) {
+                    data.users[ownerUser] = {
+                        password: btoa(ownerPass),
+                        score: 9999,
+                        lastShombulDate: '',
+                        isAdmin: true,
+                        isOwner: true
+                    };
+                    saveData(data);
+                } else {
+                    if (!data.users[ownerUser].isAdmin) {
+                        data.users[ownerUser].isAdmin = true;
+                        saveData(data);
+                    }
+                    if (!data.users[ownerUser].isOwner) {
+                        data.users[ownerUser].isOwner = true;
+                        saveData(data);
+                    }
+                    if (data.users[ownerUser].password !== btoa(ownerPass)) {
+                        data.users[ownerUser].password = btoa(ownerPass);
+                        saveData(data);
+                    }
+                }
+            }
+            ensureOwner();
+
+            const SHOP_ITEMS = [
+                { id: 'golden', icon: '👑', name: 'تاج طلایی', price: 50, desc: 'نمایش ویژه' },
+                { id: 'boost', icon: '🚀', name: 'بوست شومبول', price: 30, desc: '+۵ امتیاز' },
+                { id: 'rainbow', icon: '🌈', name: 'رنگین‌کمان', price: 20, desc: 'جلوه خاص' },
+                { id: 'star', icon: '⭐', name: 'ستاره طلایی', price: 15, desc: 'نماد افتخار' },
+                { id: 'diamond', icon: '💎', name: 'الماس', price: 100, desc: 'نادرترین' },
+                { id: 'crown', icon: '👑', name: 'تاج سلطنتی', price: 200, desc: 'فقط برای پادشاهان' },
+            ];
+
+            let currentUser = null;
+            let currentUserScore = 0;
+            let canShombulToday = false;
+            let isAdmin = false;
+            let isOwner = false;
+
+            // ===== DOM اصلی =====
+            const authSection = document.getElementById('authSection');
+            const welcomeSection = document.getElementById('welcomeSection');
+            const usernameInput = document.getElementById('usernameInput');
+            const passwordInput = document.getElementById('passwordInput');
+            const loginBtn = document.getElementById('loginBtn');
+            const registerBtn = document.getElementById('registerBtn');
+            const logoutBtn = document.getElementById('logoutBtn');
+            const greetingUser = document.getElementById('greetingUser');
+            const userRoleBadge = document.getElementById('userRoleBadge');
+            const shombulBtn = document.getElementById('shombulBtn');
+            const dailyStatus = document.getElementById('dailyStatus');
+            const currentUserScoreEl = document.getElementById('currentUserScore');
+            const leaderboardList = document.getElementById('leaderboardList');
+            const refreshBoardBtn = document.getElementById('refreshBoardBtn');
+            const lastShombulResult = document.getElementById('lastShombulResult');
+            const adminPanel = document.getElementById('adminPanel');
+            const adminUserInput = document.getElementById('adminUserInput');
+            const adminScoreInput = document.getElementById('adminScoreInput');
+            const adminAddScoreBtn = document.getElementById('adminAddScoreBtn');
+            const adminRemoveScoreBtn = document.getElementById('adminRemoveScoreBtn');
+            const adminPhotoName = document.getElementById('adminPhotoName');
+            const adminPhotoFile = document.getElementById('adminPhotoFile');
+            const adminUploadPhotoBtn = document.getElementById('adminUploadPhotoBtn');
+            const banUserInput = document.getElementById('banUserInput');
+            const banReasonInput = document.getElementById('banReasonInput');
+            const banUserBtn = document.getElementById('banUserBtn');
+            const unbanUserBtn = document.getElementById('unbanUserBtn');
+            const resetAllBtn = document.getElementById('resetAllBtn');
+            const consoleBody = document.getElementById('consoleBody');
+            const consoleInput = document.getElementById('consoleInput');
+            const consoleSendBtn = document.getElementById('consoleSendBtn');
+            const consoleClearBtn = document.getElementById('consoleClearBtn');
+            const shopGrid = document.getElementById('shopGrid');
+            const rankGrid = document.getElementById('rankGrid');
+            const galleryGrid = document.getElementById('galleryGrid');
+            const footerInfoBtn = document.getElementById('footerInfoBtn');
+            const userCount = document.getElementById('userCount');
+            const showBuyModalBtn = document.getElementById('showBuyModalBtn');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const copyIdBtn = document.getElementById('copyIdBtn');
+
+            // ===== توابع اصلی =====
+            function getToday() {
+                return new Date().toISOString().split('T')[0];
+            }
+
+            function hashPassword(pwd) {
+                return btoa(pwd);
+            }
+
+            function consoleLog(message, type = 'result') {
+                const time = new Date().toLocaleTimeString('fa-IR');
+                const div = document.createElement('div');
+                div.className = 'log-line';
+                const cls = type === 'error' ? 'error' : type === 'cmd' ? 'cmd' : 'result';
+                div.innerHTML = `<span class="time">[${time}]</span> <span class="${cls}">${message}</span>`;
+                consoleBody.appendChild(div);
+                consoleBody.scrollTop = consoleBody.scrollHeight;
+            }
+
+            function clearConsole() {
+                consoleBody.innerHTML = '';
+                consoleLog('✅ ترمینال پاک شد', 'result');
+                consoleLog('💡 دستورات: help, users, add/remove [user] [score], top, shop, ranks, ban [user] [دلیل], unban [user], give_rank [user] [rank]', 'cmd');
+            }
+
+            function processCommand(cmd) {
+                const parts = cmd.trim().split(/\s+/);
+                const command = parts[0]?.toLowerCase();
+                if (!command) { consoleLog('⚠️ دستور خالی است', 'error'); return; }
+                const data = getData();
+
+                switch (command) {
+                    case 'help':
+                        consoleLog('📖 دستورات:', 'cmd');
+                        consoleLog('  help, users, add [user] [score], remove [user] [score], top, whoami, shop, ranks', 'cmd');
+                        consoleLog('  ban [user] [دلیل], unban [user], give_rank [user] [rank]', 'cmd');
+                        break;
+                    case 'users':
+                        const list = Object.keys(data.users).filter(u => u !== 'owner').join(', ');
+                        consoleLog(`👥 کاربران: ${list || 'هیچکس'}`, 'result');
+                        break;
+                    case 'add':
+                        if (parts.length < 3) { consoleLog('⚠️ add [user] [score]', 'error'); return; }
+                        const u1 = parts[1],
+                            s1 = parseInt(parts[2]);
+                        if (isNaN(s1) || s1 < 1) { consoleLog('⚠️ امتیاز مثبت', 'error'); return; }
+                        if (!data.users[u1]) { consoleLog(`❌ "${u1}" یافت نشد`, 'error'); return; }
+                        if (isUserBanned(u1)) { consoleLog(`⚠️ "${u1}" بن است!`, 'error'); return; }
+                        data.users[u1].score = (data.users[u1].score || 0) + s1;
+                        saveData(data);
+                        consoleLog(`✅ ${s1} به "${u1}" اضافه شد (مجموع: ${data.users[u1].score})`, 'result');
+                        renderLeaderboard();
+                        if (currentUser === u1) { currentUserScore = data.users[u1].score;
+                            currentUserScoreEl.textContent = currentUserScore; }
+                        break;
+                    case 'remove':
+                        if (parts.length < 3) { consoleLog('⚠️ remove [user] [score]', 'error'); return; }
+                        const u2 = parts[1],
+                            s2 = parseInt(parts[2]);
+                        if (isNaN(s2) || s2 < 1) { consoleLog('⚠️ امتیاز مثبت', 'error'); return; }
+                        if (!data.users[u2]) { consoleLog(`❌ "${u2}" یافت نشد`, 'error'); return; }
+                        const newScore = Math.max(0, (data.users[u2].score || 0) - s2);
+                        data.users[u2].score = newScore;
+                        saveData(data);
+                        consoleLog(`➖ ${s2} از "${u2}" کم شد (مجموع: ${newScore})`, 'result');
+                        renderLeaderboard();
+                        if (currentUser === u2) { currentUserScore = data.users[u2].score;
+                            currentUserScoreEl.textContent = currentUserScore; }
+                        break;
+                    case 'top':
+                        const sorted = Object.entries(data.users)
+                            .filter(([u]) => u !== 'owner')
+                            .sort((a, b) => (b[1].score || 0) - (a[1].score || 0))
+                            .slice(0, 5);
+                        if (sorted.length === 0) { consoleLog('📭 خالی', 'cmd'); return; }
+                        consoleLog('🏆 ۵ نفر برتر:', 'cmd');
+                        sorted.forEach(([name, info], i) => consoleLog(`  #${i+1} ${name} — ⭐ ${info.score || 0}`,
+                            'result'));
+                        break;
+                    case 'whoami':
+                        consoleLog(`👤 ${currentUser || 'هیچکس'} | ادمین: ${isAdmin ? '✅' : '❌'} | امتیاز: ${currentUserScore}`,
+                            'result');
+                        break;
+                    case 'shop':
+                        consoleLog('🛒 آیتم‌های فروشگاه:', 'cmd');
+                        SHOP_ITEMS.forEach(item => {
+                            consoleLog(`  ${item.icon} ${item.name} — 💰 ${item.price} امتیاز`, 'result');
+                        });
+                        break;
+                    case 'ranks':
+                        consoleLog('👑 رنک‌های شومبول:', 'cmd');
+                        Object.keys(RANKS).forEach(key => {
+                            const r = RANKS[key];
+                            consoleLog(`  ${r.icon} ${key} — 💰 ${r.price} امتیاز | +${r.boost} بوستر`, 'result');
+                        });
+                        break;
+                    case 'ban':
+                        if (parts.length < 3) { consoleLog('⚠️ ban [user] [دلیل]', 'error'); return; }
+                        const banUser = parts[1];
+                        const banReason = parts.slice(2).join(' ') || 'دلیل مشخص نشده';
+                        if (banUser === 'owner') { consoleLog('❌ نمی‌تونی owner رو بن کنی!', 'error'); return; }
+                        const banData = getData();
+                        if (!banData.users[banUser]) { consoleLog(`❌ "${banUser}" یافت نشد`, 'error'); return; }
+                        const banned = getBanned();
+                        if (!banned.includes(banUser)) {
+                            banned.push(banUser);
+                            saveBanned(banned);
+                            const reasons = getBanReasons();
+                            reasons[banUser] = banReason;
+                            saveBanReasons(reasons);
+                            banData.users[banUser].score = 0;
+                            saveData(banData);
+                            consoleLog(`⛔ "${banUser}" بن شد! دلیل: ${banReason} | امتیاز صفر شد`, 'result');
+                            renderLeaderboard();
+                            renderRankShop();
+                            renderShop();
+                            if (currentUser === banUser) {
+                                currentUser = null;
+                                sessionStorage.removeItem('shombul_current_user');
+                                updateUI();
+                            }
+                        } else {
+                            consoleLog(`⚠️ "${banUser}" قبلاً بن شده`, 'error');
+                        }
+                        break;
+                    case 'unban':
+                        if (parts.length < 2) { consoleLog('⚠️ unban [user]', 'error'); return; }
+                        const unbanUser = parts[1];
+                        const bannedList = getBanned();
+                        if (bannedList.includes(unbanUser)) {
+                            const newBanned = bannedList.filter(u => u !== unbanUser);
+                            saveBanned(newBanned);
+                            const reasons = getBanReasons();
+                            delete reasons[unbanUser];
+                            saveBanReasons(reasons);
+                            consoleLog(`✅ "${unbanUser}" آنبن شد`, 'result');
+                            renderLeaderboard();
+                        } else {
+                            consoleLog(`⚠️ "${unbanUser}" بن نیست`, 'error');
+                        }
+                        break;
+                    case 'give_rank':
+                        if (parts.length < 3) { consoleLog('⚠️ give_rank [user] [rank]', 'error'); return; }
+                        const targetUser = parts[1];
+                        const rankName = parts.slice(2).join(' ');
+                        if (!RANKS[rankName]) { consoleLog(`❌ رنک "${rankName}" وجود ندارد`, 'error'); return; }
+                        const gData = getData();
+                        if (!gData.users[targetUser]) { consoleLog(`❌ "${targetUser}" یافت نشد`, 'error'); return; }
+                        const ranks = getRanks();
+                        ranks[targetUser] = rankName;
+                        saveRanks(ranks);
+                        const expire = getRankExpire();
+                        const now = new Date();
+                        now.setDate(now.getDate() + 7);
+                        expire[targetUser] = now.toISOString();
+                        saveRankExpire(expire);
+                        consoleLog(`👑 رنک "${rankName}" به "${targetUser}" داده شد (۷ روز اعتبار)`, 'result');
+                        renderLeaderboard();
+                        renderRankShop();
+                        break;
+                    default:
+                        consoleLog(`❌ "${command}" ناشناخته. help ببین`, 'error');
+                }
+            }
+
+            function showCelebration(rankName) {
+                const div = document.createElement('div');
+                div.className = 'celebration';
+                div.style.cssText =
+                    'position:fixed; inset:0; pointer-events:none; z-index:99999; display:flex; align-items:center; justify-content:center; flex-direction:column; animation:celebFade 5s ease-out forwards;';
+                div.innerHTML = `
+                            <span style="font-size:clamp(3rem,10vw,6rem); animation:celebFall 2s ease-out;">🎉</span>
+                            <span style="font-size:clamp(2rem,8vw,4rem); font-weight:900; color:#ffd700; text-shadow:0 0 40px rgba(255,215,0,0.3); animation:celebPulse 0.5s ease-out;">${RANKS[rankName]?.icon || '🎊'} ${rankName} خریداری شد!</span>
+                            <span style="font-size:clamp(3rem,10vw,6rem); animation:celebFall 2s ease-out;">✨</span>
+                        `;
+                // اضافه کردن استایل‌های انیمیشن
+                const style = document.createElement('style');
+                style.textContent = `
+                            @keyframes celebFade { 0% { opacity:1; transform:scale(1); } 70% { opacity:1; transform:scale(1); } 100% { opacity:0; transform:scale(1.2); } }
+                            @keyframes celebPulse { 0% { transform:scale(0.5); opacity:0; } 50% { transform:scale(1.2); } 100% { transform:scale(1); opacity:1; } }
+                            @keyframes celebFall { 0% { transform:translateY(-100px) rotate(0deg); opacity:0; } 50% { transform:translateY(10px) rotate(10deg); opacity:1; } 100% { transform:translateY(0px) rotate(0deg); opacity:1; } }
+                        `;
+                document.head.appendChild(style);
+                document.body.appendChild(div);
+                setTimeout(() => {
+                    div.remove();
+                    style.remove();
+                }, 5000);
+            }
+
+            // ===== گالری =====
+            function renderGallery() {
+                const photos = getPhotos();
+                const bought = getBought();
+                const username = currentUser || 'guest';
+
+                galleryGrid.innerHTML = '';
+                if (photos.length === 0) {
+                    galleryGrid.innerHTML =
+                        `<div style="grid-column:1/-1; text-align:center; color:#87ceeb; padding:20px 0;">📭 هنوز عکسی وجود ندارد</div>`;
+                    return;
+                }
+
+                photos.forEach((photo, index) => {
+                    const div = document.createElement('div');
+                    div.className = 'gallery-item';
+
+                    const isBought = bought[username] && bought[username].includes(index);
+
+                    let deleteBtn = '';
+                    if (isOwner && currentUser === 'owner') {
+                        deleteBtn = `<button class="delete-btn" data-index="${index}" title="حذف عکس" style="position:absolute; top:6px; right:6px; background:rgba(255,0,0,0.7); color:#fff; border:none; border-radius:60px; width:28px; height:28px; font-size:0.8rem; cursor:pointer; z-index:5;">🗑️</button>`;
+                    }
+
+                    if (isBought) {
+                        div.innerHTML = `
+                                    <img src="${photo.data}" alt="${photo.name || 'عکس'}" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                                    <span class="bought-badge" style="position:absolute; top:6px; left:6px; background:rgba(0,0,0,0.7); color:#ffd700; font-size:0.6rem; padding:2px 10px; border-radius:60px; border:1px solid rgba(255,215,0,0.1);">✅ خریداری شده</span>
+                                    ${deleteBtn}
+                                `;
+                    } else {
+                        div.innerHTML = `
+                                    <span class="lock-icon" style="font-size:2rem; color:#87ceeb; opacity:0.3;">🔒</span>
+                                    <div class="buy-overlay" style="position:absolute; inset:0; background:rgba(0,0,0,0.7); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; opacity:0; transition:all 0.3s; border-radius:12px;">
+                                        <span class="price-tag" style="color:#ffd700; font-weight:700; font-size:clamp(0.8rem,2vw,1rem);">💰 ۱۰۰۰ شومبول</span>
+                                        <button class="btn-buy-gallery" data-index="${index}" style="background:#ffd700; color:#0a0a0a; border:none; padding:4px 18px; border-radius:60px; font-weight:700; font-size:0.8rem; cursor:pointer;">خرید</button>
+                                    </div>
+                                    ${deleteBtn}
+                                `;
+                        const buyBtn = div.querySelector('.btn-buy-gallery');
+                        buyBtn.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            buyGalleryPhoto(index);
+                        });
+                    }
+
+                    const delBtn = div.querySelector('.delete-btn');
+                    if (delBtn) {
+                        delBtn.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            if (confirm(`آیا از حذف عکس "${photo.name || 'بدون نام'}" مطمئنی؟`)) {
+                                const allPhotos = getPhotos();
+                                allPhotos.splice(index, 1);
+                                savePhotos(allPhotos);
+                                const boughtData = getBought();
+                                Object.keys(boughtData).forEach(user => {
+                                    boughtData[user] = boughtData[user].filter(i => i !== index);
+                                    boughtData[user] = boughtData[user].map(i => i > index ? i - 1 : i);
+                                });
+                                saveBought(boughtData);
+                                consoleLog(`🗑️ عکس "${photo.name || 'بدون نام'}" حذف شد`, 'result');
+                                renderGallery();
+                            }
+                        });
+                    }
+
+                    // hover effect
+                    div.addEventListener('mouseenter', function() {
+                        const overlay = this.querySelector('.buy-overlay');
+                        if (overlay) overlay.style.opacity = '1';
+                    });
+                    div.addEventListener('mouseleave', function() {
+                        const overlay = this.querySelector('.buy-overlay');
+                        if (overlay) overlay.style.opacity = '0';
+                    });
+
+                    galleryGrid.appendChild(div);
+                });
+            }
+
+            function buyGalleryPhoto(index) {
+                if (!currentUser || currentUser === 'owner' || isOwner) {
+                    alert('❌ اکانت owner نمی‌تونه عکس بخره!');
+                    return;
+                }
+                if (isUserBanned(currentUser)) {
+                    alert('⛔ شما بن هستید!');
+                    return;
+                }
+
+                const photos = getPhotos();
+                if (index < 0 || index >= photos.length) {
+                    alert('عکس نامعتبر!');
+                    return;
+                }
+
+                const data = getData();
+                const user = data.users[currentUser];
+                if (!user) return;
+
+                if (user.score < 1000) {
+                    alert(`❌ امتیاز کافی نیست! نیاز: ۱۰۰۰ ، داری: ${user.score}`);
+                    return;
+                }
+
+                user.score = user.score - 1000;
+                saveData(data);
+
+                const bought = getBought();
+                if (!bought[currentUser]) bought[currentUser] = [];
+                if (!bought[currentUser].includes(index)) {
+                    bought[currentUser].push(index);
+                    saveBought(bought);
+                }
+
+                currentUserScore = user.score;
+                currentUserScoreEl.textContent = currentUserScore;
+
+                alert(`✅ عکس با موفقیت خریداری شد! (۱۰۰۰ شومبول کم شد)`);
+                consoleLog(`🖼️ ${currentUser} عکس #${index+1} رو خرید`, 'result');
+                renderGallery();
+                renderLeaderboard();
+                renderShop();
+            }
+
+            // ===== آپلود عکس =====
+            function uploadPhoto() {
+                if (!currentUser || !isOwner) {
+                    alert('❌ فقط مالک (owner) دسترسی دارد!');
+                    return;
+                }
+
+                const name = adminPhotoName.value.trim() || 'بدون نام';
+                const file = adminPhotoFile.files[0];
+
+                if (!file) {
+                    alert('لطفاً یک عکس انتخاب کن!');
+                    return;
+                }
+
+                if (file.size > 2 * 1024 * 1024) {
+                    alert('حجم عکس نباید بیشتر از ۲ مگابایت باشد!');
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const photos = getPhotos();
+                    photos.push({
+                        name: name,
+                        data: e.target.result,
+                        uploadedAt: new Date().toISOString()
+                    });
+                    savePhotos(photos);
+
+                    adminPhotoName.value = '';
+                    adminPhotoFile.value = '';
+
+                    alert('✅ عکس با موفقیت آپلود شد!');
+                    consoleLog(`📤 عکس "${name}" آپلود شد`, 'result');
+                    renderGallery();
+                };
+                reader.onerror = function() {
+                    alert('❌ خطا در خواندن فایل!');
+                };
+                reader.readAsDataURL(file);
+            }
+
+            // ===== رنک شاپ =====
+            function renderRankShop() {
+                rankGrid.innerHTML = '';
+                Object.keys(RANKS).forEach(key => {
+                    const rank = RANKS[key];
+                    const div = document.createElement('div');
+                    div.className = 'rank-card';
+                    const features = RANK_FEATURES[key] || [];
+                    const isBanned = currentUser ? isUserBanned(currentUser) : false;
+                    div.innerHTML = `
+                                <span class="rank-icon" style="font-size:2.2rem; display:block; margin-bottom:4px;">${rank.icon}</span>
+                                <div class="rank-name" style="color:#fff; font-weight:700; font-size:clamp(0.9rem,2vw,1rem);">${rank.label}</div>
+                                <div class="rank-price" style="color:#ffd700; font-weight:600; font-size:clamp(0.7rem,1.6vw,0.8rem); margin:4px 0;">💰 ${rank.price} شومبول</div>
+                                <div class="rank-boost" style="color:#87ceeb; font-size:clamp(0.65rem,1.5vw,0.75rem); font-weight:300;">🚀 +${rank.boost} امتیاز اضافه</div>
+                                <div class="rank-features" style="color:rgba(255,255,255,0.3); font-size:clamp(0.55rem,1.2vw,0.65rem); margin:6px 0; line-height:1.6;">
+                                    ${features.map(f => `<span style="display:block; color:rgba(255,255,255,0.2);">• ${f}</span>`).join('')}
+                                </div>
+                                <button class="btn-buy-rank" data-rank="${key}" style="margin-top:8px; padding:6px 20px; border-radius:60px; border:1px solid rgba(255,215,0,0.04); background:rgba(255,215,0,0.02); color:#87ceeb; font-size:clamp(0.7rem,1.6vw,0.8rem); font-weight:600; cursor:pointer; transition:all 0.3s; width:100%;" ${currentUser && currentUser !== 'owner' && !isOwner && !isBanned ? '' : 'disabled'}>
+                                    🛒 خرید رنک
+                                </button>
+                            `;
+                    rankGrid.appendChild(div);
+                });
+
+                document.querySelectorAll('.btn-buy-rank').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const rankKey = this.dataset.rank;
+                        buyRank(rankKey);
+                    });
+                });
+            }
+
+            function buyRank(rankKey) {
+                if (!currentUser || currentUser === 'owner' || isOwner) {
+                    alert('❌ اکانت owner نمی‌تونه رنک بخره!');
+                    return;
+                }
+                if (isUserBanned(currentUser)) {
+                    alert('⛔ شما بن هستید!');
+                    return;
+                }
+
+                const rank = RANKS[rankKey];
+                if (!rank) return;
+
+                const data = getData();
+                const user = data.users[currentUser];
+                if (!user) return;
+
+                if (user.score < rank.price) {
+                    alert(`❌ امتیاز کافی نیست! نیاز: ${rank.price} ، داری: ${user.score}`);
+                    return;
+                }
+
+                user.score = user.score - rank.price;
+                saveData(data);
+
+                const ranks = getRanks();
+                ranks[currentUser] = rankKey;
+                saveRanks(ranks);
+
+                const expire = getRankExpire();
+                const now = new Date();
+                now.setDate(now.getDate() + 7);
+                expire[currentUser] = now.toISOString();
+                saveRankExpire(expire);
+
+                currentUserScore = user.score;
+                currentUserScoreEl.textContent = currentUserScore;
+
+                showCelebration(rankKey);
+                consoleLog(`👑 ${currentUser} رنک "${rankKey}" رو خرید (${rank.price} امتیاز)`, 'result');
+                renderLeaderboard();
+                renderRankShop();
+                renderShop();
+            }
+
+            function getUserRank(username) {
+                const ranks = getRanks();
+                const expire = getRankExpire();
+                const rankKey = ranks[username];
+                if (!rankKey) return null;
+
+                const expireDate = expire[username];
+                if (expireDate) {
+                    const now = new Date();
+                    const exp = new Date(expireDate);
+                    if (now > exp) {
+                        delete ranks[username];
+                        delete expire[username];
+                        saveRanks(ranks);
+                        saveRankExpire(expire);
+                        return null;
+                    }
+                }
+                return rankKey;
+            }
+
+            function getRankBoost(username) {
+                const rankKey = getUserRank(username);
+                if (rankKey && RANKS[rankKey]) {
+                    return RANKS[rankKey].boost;
+                }
+                return 0;
+            }
+
+            // ===== لیدر بورد =====
+            function renderLeaderboard() {
+                const data = getData();
+                const banned = getBanned();
+                const entries = Object.entries(data.users)
+                    .filter(([username, info]) => {
+                        if (username === 'owner') return false;
+                        return info.score !== undefined;
+                    })
+                    .map(([username, info]) => {
+                        const rankKey = getUserRank(username);
+                        const isBanned = banned.includes(username);
+                        return {
+                            username,
+                            score: info.score || 0,
+                            isAdmin: info.isAdmin || false,
+                            rankKey: rankKey,
+                            rankIcon: rankKey ? RANKS[rankKey]?.icon || '' : '',
+                            rankLabel: rankKey ? RANKS[rankKey]?.label || '' : '',
+                            rankColor: rankKey ? RANKS[rankKey]?.color || '' : '',
+                            isBanned: isBanned,
+                            banReason: isBanned ? getBanReason(username) : ''
+                        };
+                    });
+                entries.sort((a, b) => b.score - a.score || a.username.localeCompare(b.username));
+
+                userCount.textContent = `${entries.length} کاربر`;
+
+                leaderboardList.innerHTML = '';
+                if (entries.length === 0) {
+                    leaderboardList.innerHTML = `<li class="empty-state" style="text-align:center; color:#87ceeb; padding:28px 0; font-style:italic; font-weight:300;">📭 هنوز کسی امتیاز نگرفته</li>`;
+                    return;
+                }
+
+                entries.slice(0, 20).forEach((entry, i) => {
+                    const li = document.createElement('li');
+                    li.style.cssText =
+                        'background:#0a0a0a; padding:12px 16px; border-radius:60px; display:flex; justify-content:space-between; align-items:center; border:1px solid rgba(135,206,235,0.03); color:#87ceeb; font-weight:500; box-shadow:0 4px 20px rgba(0,0,0,0.2); transition:all 0.3s; font-size:clamp(0.85rem,2vw,1rem);';
+
+                    const rank = document.createElement('span');
+                    rank.style.cssText =
+                        'background:rgba(135,206,235,0.04); color:#87ceeb; width:30px; height:30px; border-radius:60px; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:clamp(0.7rem,1.6vw,0.8rem); flex-shrink:0; border:1px solid rgba(135,206,235,0.03); margin-left:10px;';
+                    if (i === 0) {
+                        rank.textContent = '🥇';
+                        rank.style.cssText +=
+                            ' background:rgba(255,215,0,0.12); color:#ffd700; border-color:rgba(255,215,0,0.06);';
+                    } else if (i === 1) {
+                        rank.textContent = '🥈';
+                        rank.style.cssText +=
+                            ' background:rgba(192,192,192,0.06); color:#87ceeb; border-color:rgba(192,192,192,0.03);';
+                    } else if (i === 2) {
+                        rank.textContent = '🥉';
+                        rank.style.cssText +=
+                            ' background:rgba(205,127,50,0.06); color:#87ceeb; border-color:rgba(205,127,50,0.03);';
+                    } else {
+                        rank.textContent = `#${i+1}`;
+                    }
+
+                    const name = document.createElement('span');
+                    name.style.cssText =
+                        'flex:1; margin-right:10px; margin-left:10px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-weight:500; color:#ffffff; font-size:clamp(0.85rem,2vw,1rem); text-align:right;';
+                    let nameHTML = entry.username;
+                    if (entry.isBanned) {
+                        nameHTML +=
+                            ` <span style="font-size:0.55rem; color:#ff4444; background:rgba(255,0,0,0.1); padding:1px 10px; border-radius:60px; border:1px solid rgba(255,0,0,0.1); margin-right:4px; display:inline-block;">⛔ بن شده (${entry.banReason})</span>`;
+                    }
+                    if (entry.rankKey && entry.rankIcon) {
+                        const colorClass = entry.rankColor || 'silver';
+                        const colorMap = {
+                            'silver': 'rgba(192,192,192,0.15); color:#c0c0c0; border:1px solid rgba(192,192,192,0.1);',
+                            'gold': 'rgba(255,215,0,0.15); color:#ffd700; border:1px solid rgba(255,215,0,0.1);',
+                            'platinum': 'rgba(229,228,226,0.12); color:#e5e4e2; border:1px solid rgba(229,228,226,0.08);'
+                        };
+                        nameHTML +=
+                            ` <span style="font-size:0.55rem; padding:1px 8px; border-radius:60px; margin-right:4px; font-weight:700; display:inline-block; background:${colorMap[colorClass] || 'rgba(192,192,192,0.15); color:#c0c0c0; border:1px solid rgba(192,192,192,0.1);'}">${entry.rankIcon} ${entry.rankLabel}</span>`;
+                    }
+                    if (entry.isAdmin && !entry.isBanned) {
+                        nameHTML +=
+                            ' <span style="font-size:0.6rem; color:#ffd700; margin-right:6px; font-weight:400;">👑</span>';
+                    }
+                    name.innerHTML = nameHTML;
+
+                    const score = document.createElement('span');
+                    score.style.cssText =
+                        'background:rgba(255,215,0,0.02); padding:4px 16px; border-radius:60px; font-weight:700; color:#87ceeb; border:1px solid rgba(255,215,0,0.02); font-size:clamp(0.7rem,1.6vw,0.85rem); flex-shrink:0; font-family:\'Courier New\',monospace; text-align:center; min-width:50px;';
+                    if (entry.score >= 100) {
+                        score.style.cssText += ' color:#ffd700; border-color:rgba(255,215,0,0.04); background:rgba(255,215,0,0.02);';
+                    }
+                    score.textContent = entry.isBanned ? '⛔ ۰' : `⭐ ${entry.score}`;
+
+                    li.appendChild(rank);
+                    li.appendChild(name);
+                    li.appendChild(score);
+                    leaderboardList.appendChild(li);
+                });
+            }
+
+            // ===== فروشگاه =====
+            function renderShop() {
+                shopGrid.innerHTML = '';
+                const isBanned = currentUser ? isUserBanned(currentUser) : false;
+                SHOP_ITEMS.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'shop-item';
+                    div.style.cssText =
+                        'background:#0a0a0a; border-radius:16px; padding:14px 12px; text-align:center; border:1px solid rgba(135,206,235,0.02); transition:all 0.3s; cursor:pointer;';
+                    div.innerHTML = `
+                                <span class="item-icon" style="font-size:2rem; display:block; margin-bottom:4px;">${item.icon}</span>
+                                <div class="item-name" style="color:#ffffff; font-weight:600; font-size:clamp(0.75rem,1.8vw,0.85rem);">${item.name}</div>
+                                <div class="item-desc" style="color:#87ceeb; font-size:clamp(0.55rem,1.4vw,0.65rem); font-weight:300; margin-top:2px;">${item.desc}</div>
+                                <div class="item-price" style="color:#ffd700; font-weight:700; font-size:clamp(0.65rem,1.6vw,0.75rem); margin-top:4px;">💰 ${item.price} امتیاز</div>
+                                <button class="btn-buy" data-id="${item.id}" style="margin-top:8px; padding:6px 16px; border-radius:60px; border:1px solid rgba(135,206,235,0.03); background:rgba(135,206,235,0.02); color:#87ceeb; font-size:clamp(0.65rem,1.6vw,0.75rem); font-weight:600; cursor:pointer; transition:all 0.3s; width:100%;" ${currentUser && currentUser !== 'owner' && !isOwner && !isBanned ? '' : 'disabled'}>
+                                    🛒 خرید
+                                </button>
+                            `;
+                    shopGrid.appendChild(div);
+                });
+
+                document.querySelectorAll('.btn-buy').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const itemId = this.dataset.id;
+                        buyItem(itemId);
+                    });
+                });
+            }
+
+            function buyItem(itemId) {
+                if (!currentUser || currentUser === 'owner' || isOwner) {
+                    alert('❌ اکانت owner نمی‌تونه از فروشگاه بخره!');
+                    return;
+                }
+                if (isUserBanned(currentUser)) {
+                    alert('⛔ شما بن هستید!');
+                    return;
+                }
+
+                const item = SHOP_ITEMS.find(i => i.id === itemId);
+                if (!item) return;
+
+                const data = getData();
+                const user = data.users[currentUser];
+                if (!user) return;
+
+                if (user.score < item.price) {
+                    alert(`❌ امتیاز کافی نیست! نیاز: ${item.price} ، داری: ${user.score}`);
+                    return;
+                }
+
+                user.score = user.score - item.price;
+                saveData(data);
+
+                currentUserScore = user.score;
+                currentUserScoreEl.textContent = currentUserScore;
+
+                alert(`✅ ${item.icon} ${item.name} رو خریدی! (${item.price} امتیاز کم شد)`);
+                consoleLog(`🛒 ${currentUser} "${item.name}" رو خرید (${item.price} امتیاز)`, 'result');
+                renderLeaderboard();
+                renderShop();
+            }
+
+            // ===== شومبول =====
+            function performShombul() {
+                if (!currentUser || currentUser === 'owner' || isOwner) {
+                    alert('❌ اکانت owner نمی‌تونه شومبول بزنه!');
+                    return;
+                }
+                if (isUserBanned(currentUser)) {
+                    alert('⛔ شما بن هستید!');
+                    return;
+                }
+
+                const data = getData();
+                const user = data.users[currentUser];
+                if (!user) { currentUser = null;
+                    updateUI(); return; }
+
+                const today = getToday();
+                if (user.lastShombulDate === today) { alert('امروز زدی!'); updateUI(); return; }
+
+                const growth = Math.floor(Math.random() * 12) + 1;
+                const boost = getRankBoost(currentUser);
+                const totalGrowth = growth + boost;
+                user.score = (user.score || 0) + totalGrowth;
+                user.lastShombulDate = today;
+                saveData(data);
+
+                currentUserScore = user.score;
+                canShombulToday = false;
+
+                const boostText = boost > 0 ? ` (${growth} + ${boost} بوستر)` : '';
+                lastShombulResult.innerHTML =
+                    `🎯 شومبول زدی! <span class="highlight" style="background:rgba(255,215,0,0.04); border-radius:40px; padding:2px 14px; font-weight:700; color:#ffd700;">+${totalGrowth}</span>${boostText} (مجموع: ${currentUserScore})`;
+
+                updateUI();
+
+                shombulBtn.style.background = 'linear-gradient(135deg, #ffd700, #e6c200)';
+                shombulBtn.style.boxShadow = '0 4px 30px rgba(255,215,0,0.06)';
+                setTimeout(() => {
+                    shombulBtn.style.background = '';
+                    shombulBtn.style.boxShadow = '';
+                }, 300);
+            }
+
+            // ===== UI اصلی =====
+            function updateUI() {
+                if (!currentUser) {
+                    authSection.style.display = 'block';
+                    welcomeSection.style.display = 'none';
+                    return;
+                }
+
+                if (isUserBanned(currentUser)) {
+                    alert(`⛔ اکانت شما بن شده است!\nدلیل: ${getBanReason(currentUser)}`);
+                    currentUser = null;
+                    sessionStorage.removeItem('shombul_current_user');
+                    authSection.style.display = 'block';
+                    welcomeSection.style.display = 'none';
+                    return;
+                }
+
+                const data = getData();
+                const user = data.users[currentUser];
+                if (!user) {
+                    currentUser = null;
+                    authSection.style.display = 'block';
+                    welcomeSection.style.display = 'none';
+                    return;
+                }
+
+                authSection.style.display = 'none';
+                welcomeSection.style.display = 'block';
+                greetingUser.textContent = currentUser;
+
+                isAdmin = user.isAdmin || false;
+                isOwner = user.isOwner || false;
+
+                if (isOwner && currentUser === 'owner') {
+                    userRoleBadge.textContent = '👑 مالک';
+                    userRoleBadge.className = 'badge badge-admin';
+                    userRoleBadge.style.cssText =
+                        'padding:4px 16px; border-radius:60px; font-size:clamp(0.65rem,1.6vw,0.75rem); font-weight:600; background:rgba(255,215,0,0.06); color:#ffd700; border:1px solid rgba(255,215,0,0.06);';
+                    adminPanel.style.display = 'block';
+                    document.getElementById('adminConsole').style.display = 'block';
+                    consoleLog('👋 خوش برگشتی مالک!', 'result');
+                } else {
+                    userRoleBadge.textContent = '👤 کاربر';
+                    userRoleBadge.className = 'badge';
+                    userRoleBadge.style.cssText =
+                        'padding:4px 16px; border-radius:60px; font-size:clamp(0.65rem,1.6vw,0.75rem); font-weight:600; background:rgba(135,206,235,0.03); color:#87ceeb; border:1px solid rgba(135,206,235,0.04);';
+                    adminPanel.style.display = 'none';
+                    document.getElementById('adminConsole').style.display = 'none';
+                }
+
+                currentUserScore = user.score || 0;
+                currentUserScoreEl.textContent = currentUserScore;
+
+                const today = getToday();
+                const shombulToday = (user.lastShombulDate === today);
+                canShombulToday = !shombulToday;
+
+                const isBanned = isUserBanned(currentUser);
+
+                if (currentUser === 'owner' || isOwner || isBanned) {
+                    dailyStatus.textContent = isBanned ? '⛔ بن شدی' : '⛔ مالک نمی‌تونه بزنه';
+                    shombulBtn.disabled = true;
+                    shombulBtn.textContent = isBanned ? '⛔ بن شدی' : '⛔ مالک';
+                } else {
+                    dailyStatus.textContent = shombulToday ? '❌ امروز قبلاً زدی' : '✅ امروز: ۰ بار';
+                    shombulBtn.disabled = !canShombulToday;
+                    shombulBtn.textContent = canShombulToday ? '💥 شومبول بزن' : '⛔ امروز کامل شد';
+                }
+
+                renderLeaderboard();
+                renderShop();
+                renderRankShop();
+                renderGallery();
+
+                // تیکت رو هم رندر کن
+                renderTickets();
+                renderTicketBadge();
+            }
+
+            // ===== تیکت =====
+            function renderTickets() {
+                const tickets = getTickets();
+                const isOwnerUser = isOwner && currentUser === 'owner';
+
+                let displayTickets = [];
+                if (isOwnerUser) {
+                    displayTickets = tickets;
+                } else if (currentUser) {
+                    displayTickets = tickets.filter(t => t.username === currentUser);
+                } else {
+                    displayTickets = [];
+                }
+
+                // فقط برای نمایش در کنسول یا جاهای دیگه
+                const pendingCount = tickets.filter(t => !t.answer).length;
+                if (pendingCount > 0 && isOwnerUser) {
+                    const badge = document.querySelector('.ticket-circle .badge-count');
+                    if (badge) { badge.style.display = 'flex';
+                        badge.textContent = pendingCount; }
+                } else {
+                    const badge = document.querySelector('.ticket-circle .badge-count');
+                    if (badge) badge.style.display = 'none';
+                }
+            }
+
+            function renderTicketBadge() {
+                const tickets = getTickets();
+                const pendingCount = tickets.filter(t => !t.answer).length;
+                const isOwnerUser = isOwner && currentUser === 'owner';
+                const badge = document.querySelector('.ticket-circle .badge-count');
+                if (badge) {
+                    if (pendingCount > 0 && isOwnerUser) {
+                        badge.style.display = 'flex';
+                        badge.textContent = pendingCount;
+                    } else {
+                        badge.style.display = 'none';
+                    }
+                }
+            }
+
+            // ===== ریست کامل =====
+            function resetAll() {
+                if (!currentUser || !isOwner) {
+                    alert('❌ فقط مالک (owner) می‌تونه ریست کنه!');
+                    return;
+                }
+                if (!confirm('⚠️ آیا مطمئنی؟ همه کاربران و امتیازها پاک میشن! (فقط owner میمونه)')) return;
+
+                localStorage.removeItem(STORAGE_KEY);
+                localStorage.removeItem(RANK_KEY);
+                localStorage.removeItem(RANK_EXPIRE_KEY);
+                localStorage.removeItem(PHOTOS_KEY);
+                localStorage.removeItem(BOUGHT_KEY);
+                localStorage.removeItem(BAN_KEY);
+                localStorage.removeItem(BAN_REASON_KEY);
+                localStorage.removeItem(TICKET_KEY);
+
+                ensureOwner();
+
+                currentUser = null;
+                sessionStorage.removeItem('shombul_current_user');
+                isAdmin = false;
+                isOwner = false;
+
+                alert('✅ همه چیز ریست شد! فقط اکانت owner باقی موند.');
+                consoleLog('🔄 سیستم ریست شد', 'cmd');
+                updateUI();
+                location.reload();
+            }
+
+            // ===== ادمین: امتیاز =====
+            function adminModifyScore(isAdding) {
+                if (!currentUser || !isOwner) {
+                    alert('❌ فقط مالک (owner) دسترسی داره!');
+                    return;
+                }
+                const target = adminUserInput.value.trim();
+                const val = parseInt(adminScoreInput.value);
+                if (!target) { alert('نام کاربر'); return; }
+                if (isNaN(val) || val < 1 || val > 999) { alert('۱ تا ۹۹۹'); return; }
+                if (target === 'owner') { alert('❌ نمی‌تونی owner رو تغییر بدی!'); return; }
+                if (isUserBanned(target)) { alert(`⛔ "${target}" بن است!`); return; }
+
+                const data = getData();
+                if (!data.users[target]) { alert('کاربر یافت نشد'); return; }
+
+                if (isAdding) {
+                    data.users[target].score = (data.users[target].score || 0) + val;
+                    saveData(data);
+                    alert(`✅ ${val} به ${target} اضافه شد`);
+                    consoleLog(`➕ ${val} به "${target}" اضافه شد`, 'result');
+                } else {
+                    const current = data.users[target].score || 0;
+                    data.users[target].score = Math.max(0, current - val);
+                    saveData(data);
+                    alert(`➖ ${val} از ${target} کم شد (جدید: ${data.users[target].score})`);
+                    consoleLog(`➖ ${val} از "${target}" کم شد`, 'result');
+                }
+                adminUserInput.value = '';
+                adminScoreInput.value = '';
+                renderLeaderboard();
+                if (currentUser === target) {
+                    currentUserScore = data.users[target].score;
+                    currentUserScoreEl.textContent = currentUserScore;
+                }
+            }
+
+            // ===== بن =====
+            function banUser() {
+                if (!currentUser || !isOwner) {
+                    alert('❌ فقط مالک (owner) دسترسی داره!');
+                    return;
+                }
+                const target = banUserInput.value.trim();
+                const reason = banReasonInput.value.trim() || 'دلیل مشخص نشده';
+                if (!target) { alert('نام کاربر را وارد کن'); return; }
+                if (target === 'owner') { alert('❌ نمی‌تونی owner رو بن کنی!'); return; }
+                const data = getData();
+                if (!data.users[target]) { alert('کاربر یافت نشد'); return; }
+
+                const banned = getBanned();
+                if (banned.includes(target)) {
+                    alert(`⛔ "${target}" قبلاً بن شده!`);
+                    return;
+                }
+
+                banned.push(target);
+                saveBanned(banned);
+                const reasons = getBanReasons();
+                reasons[target] = reason;
+                saveBanReasons(reasons);
+
+                data.users[target].score = 0;
+                saveData(data);
+
+                alert(`⛔ "${target}" بن شد! دلیل: ${reason}`);
+                consoleLog(`⛔ "${target}" بن شد! دلیل: ${reason} | امتیاز صفر شد`, 'result');
+
+                banUserInput.value = '';
+                banReasonInput.value = '';
+                renderLeaderboard();
+
+                if (currentUser === target) {
+                    currentUser = null;
+                    sessionStorage.removeItem('shombul_current_user');
+                    updateUI();
+                }
+            }
+
+            function unbanUser() {
+                if (!currentUser || !isOwner) {
+                    alert('❌ فقط مالک (owner) دسترسی داره!');
+                    return;
+                }
+                const target = banUserInput.value.trim();
+                if (!target) { alert('نام کاربر را وارد کن'); return; }
+
+                const banned = getBanned();
+                if (!banned.includes(target)) {
+                    alert(`⚠️ "${target}" بن نیست!`);
+                    return;
+                }
+
+                const newBanned = banned.filter(u => u !== target);
+                saveBanned(newBanned);
+                const reasons = getBanReasons();
+                delete reasons[target];
+                saveBanReasons(reasons);
+
+                alert(`✅ "${target}" آنبن شد!`);
+                consoleLog(`✅ "${target}" آنبن شد`, 'result');
+                banUserInput.value = '';
+                renderLeaderboard();
+            }
+
+            // ===== احراز هویت =====
+            function login() {
+                const u = usernameInput.value.trim(),
+                    p = passwordInput.value.trim();
+                if (!u || !p) { alert('نام و رمز'); return; }
+                const data = getData();
+                const user = data.users[u];
+                if (!user) { alert('کاربر نیست! ثبت نام کن'); return; }
+                if (user.password !== hashPassword(p)) { alert('رمز اشتباه'); return; }
+
+                if (isUserBanned(u)) {
+                    alert(`⛔ اکانت شما بن شده است!\nدلیل: ${getBanReason(u)}`);
+                    return;
+                }
+
+                currentUser = u;
+                sessionStorage.setItem('shombul_current_user', u);
+                lastShombulResult.innerHTML = '💫 روی دکمه بزن تا شومبول کنی';
+                usernameInput.value = '';
+                passwordInput.value = '';
+                updateUI();
+                if (isOwner && u === 'owner') consoleLog(`🔐 مالک "${u}" وارد شد`, 'result');
+            }
+
+            function register() {
+                const u = usernameInput.value.trim(),
+                    p = passwordInput.value.trim();
+                if (!u || !p) { alert('نام و رمز'); return; }
+                if (u.length > 20 || p.length > 30) { alert('حداکثر ۲۰ و ۳۰'); return; }
+                if (u === 'owner') { alert('این نام رزرو شده!'); return; }
+                const data = getData();
+                if (data.users[u]) { alert('وجود دارد! وارد شو'); return; }
+                data.users[u] = { password: hashPassword(p), score: 0, lastShombulDate: '', isAdmin: false };
+                saveData(data);
+                alert(`✅ ${u} ثبت شد! حالا وارد شو`);
+                usernameInput.value = '';
+                passwordInput.value = '';
+            }
+
+            function logout() {
+                if (isOwner && currentUser === 'owner') consoleLog(`🚪 مالک "${currentUser}" خارج شد`, 'cmd');
+                currentUser = null;
+                sessionStorage.removeItem('shombul_current_user');
+                isAdmin = false;
+                isOwner = false;
+                updateUI();
+                lastShombulResult.innerHTML = '💫 روی دکمه بزن تا شومبول کنی';
+            }
+
+            function loadInitialUser() {
+                const saved = sessionStorage.getItem('shombul_current_user');
+                if (saved) {
+                    const data = getData();
+                    if (data.users[saved]) {
+                        if (isUserBanned(saved)) {
+                            sessionStorage.removeItem('shombul_current_user');
+                            currentUser = null;
+                            updateUI();
+                            return;
+                        }
+                        currentUser = saved;
+                        updateUI();
+                        if (data.users[saved].isOwner && saved === 'owner') consoleLog(
+                            `👋 خوش برگشتی مالک "${saved}"`, 'result');
+                        return;
+                    } else sessionStorage.removeItem('shombul_current_user');
+                }
+                currentUser = null;
+                updateUI();
+            }
+
+            // ===== مودال =====
+            function openModal() {
+                document.getElementById('buyModal').style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                document.getElementById('buyModal').style.display = 'none';
+                document.body.style.overflow = '';
+            }
+
+            function copyId() {
+                const id = 'mr_donbe9999999';
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(id).then(() => {
+                        alert('✅ ایدی کپی شد: ' + id);
+                    }).catch(() => {
+                        fallbackCopy(id);
+                    });
+                } else {
+                    fallbackCopy(id);
+                }
+            }
+
+            function fallbackCopy(text) {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+                try {
+                    document.execCommand('copy');
+                    alert('✅ ایدی کپی شد: ' + text);
+                } catch (e) {
+                    alert('❌ کپی نشد، لطفاً دستی کپی کن: ' + text);
+                }
+                document.body.removeChild(textarea);
+            }
+
+            // ===== رویدادها =====
+            loginBtn.addEventListener('click', login);
+            registerBtn.addEventListener('click', register);
+            logoutBtn.addEventListener('click', logout);
+            usernameInput.addEventListener('keypress', e => { if (e.key === 'Enter') login(); });
+            passwordInput.addEventListener('keypress', e => { if (e.key === 'Enter') login(); });
+            shombulBtn.addEventListener('click', performShombul);
+            refreshBoardBtn.addEventListener('click', () => { renderLeaderboard();
+                updateUI(); });
+            adminAddScoreBtn.addEventListener('click', () => adminModifyScore(true));
+            adminRemoveScoreBtn.addEventListener('click', () => adminModifyScore(false));
+            adminUploadPhotoBtn.addEventListener('click', uploadPhoto);
+            banUserBtn.addEventListener('click', banUser);
+            unbanUserBtn.addEventListener('click', unbanUser);
+            resetAllBtn.addEventListener('click', resetAll);
+            showBuyModalBtn.addEventListener('click', openModal);
+            closeModalBtn.addEventListener('click', closeModal);
+            copyIdBtn.addEventListener('click', copyId);
+
+            function handleConsole() {
+                const cmd = consoleInput.value.trim();
+                if (!cmd) return;
+                consoleLog(`> ${cmd}`, 'cmd');
+                processCommand(cmd);
+                consoleInput.value = '';
+            }
+            consoleSendBtn.addEventListener('click', handleConsole);
+            consoleInput.addEventListener('keypress', e => { if (e.key === 'Enter') handleConsole(); });
+            consoleClearBtn.addEventListener('click', clearConsole);
+
+            footerInfoBtn.addEventListener('click', function() {
+                alert(
+                    '✨ ساخته شده توسط دنبه با عشق ❤️\n\n⛏️ سرور ماینکرفت: coming soon\n🎮 گیم‌مودها: بدوارز • اس ام پی • پرکتیس\n\n🙏 با تشکر از Qasedak\n💪 قدرت گرفته از شومبول\n💔 شومبولم درد میکنه...'
+                );
+            });
+
+            // ===== شروع =====
+            loadInitialUser();
+            renderLeaderboard();
+            renderShop();
+            renderRankShop();
+            renderGallery();
+            renderTickets();
+            renderTicketBadge();
+            console.log('🏆 شومبول لیدر بورد • نسخه نهایی با ربات');
+        })();
+
+
+        // ============================================================
+        // 2. بخش ربات (ChatBot) - کاملاً مستقل
+        // ============================================================
+        (function() {
+            const toggle = document.getElementById('chatToggle');
+            const window = document.getElementById('chatWindow');
+            const close = document.getElementById('chatClose');
+            const messages = document.getElementById('chatMessages');
+            const input = document.getElementById('chatInput');
+            const send = document.getElementById('chatSend');
+
+            // پاسخ‌های هوشمند (میتونی خودت تغییرشون بدی)
+            const botResponses = [{
+                keywords: ['سلام', 'سلامت', 'چطوری', 'هی'],
+                response: 'سلام! 👋 خوبم مرسی! تو چطوری؟ 😊'
+            }, {
+                keywords: ['شومبول', 'امتیاز', 'چگونه', 'چطور'],
+                response: 'شومبول یه بازی باحاله! 🎮 هر روز میتونی ۱ بار شومبول بزنی و امتیاز بگیری. با خرید رنک هم امتیاز بیشتری میگیری! 💪'
+            }, {
+                keywords: ['رنک', 'رتبه', 'لیدر', 'بورد'],
+                response: 'لیدر بورد جاییه که بهترین‌ها رو نشون میده! 🏆 هرچی امتیازت بیشتر باشه، بالاتر میای. رنک‌های شومبول، شومبول+ و شومبول++ هم امتیازت رو بوست میدن! 🚀'
+            }, {
+                keywords: ['خرید', 'فروشگاه', 'آیتم', 'قیمت'],
+                response: 'توی فروشگاه میتونی آیتم‌های خاص بخری! 🛒 هر کدوم قیمت مخصوص خودشون رو دارن. با امتیازهایی که داری، میتونی خرید کنی! 💰'
+            }, {
+                keywords: ['بن', 'مسدود', 'بلاک', 'قفل'],
+                response: 'اگه کسی قوانین رو رعایت نکنه، بن میشه! ⛔ با بن شدن، امتیازش صفر میشه و نمی‌تونه وارد سایت بشه. فقط ادمین (owner) می‌تونه بن کنه یا آنبن کنه. 🔒'
+            }, {
+                keywords: ['گالری', 'عکس', 'تصویر', 'قفل'],
+                response: 'گالری پر از عکس‌های قفله! 🔒 هر عکس ۱۰۰۰ شومبول قیمت داره. با خرید، عکس باز میشه و میتونی ببینیش! 🖼️'
+            }, {
+                keywords: ['اکانت', 'ثبت نام', 'ورود', 'لاگین'],
+                response: 'برای ورود، نام کاربری و رمزت رو وارد کن! 🔐 اگه ثبت نام نکردی، اول ثبت نام کن و بعد وارد شو. اکانت owner مخصوص مالکه! 👑'
+            }, {
+                keywords: ['تشکر', 'مرسی', 'ممنون', 'دمت گرم'],
+                response: 'خواهش میکنم! 🙏 خوشحالم که مفید بودم. هر سوالی داری، بپرس! 😊'
+            }, {
+                keywords: ['خداحافظ', 'بای', 'خدافظ', 'فعلا'],
+                response: 'خداحافظ! 👋 برگردی خوشحال میشم دوباره ببینمت! 🌟'
+            }];
+
+            // پاسخ پیش‌فرض
+            const defaultResponse = '🤔 سوال خوبی پرسیدی! ولی متأسفانه جوابش رو نمیدونم. 🥺 میتونی از ادمین (owner) بپرسی! 👑';
+
+            function getBotResponse(message) {
+                const msg = message.trim().toLowerCase();
+                for (const item of botResponses) {
+                    for (const keyword of item.keywords) {
+                        if (msg.includes(keyword)) {
+                            return item.response;
+                        }
+                    }
+                }
+                return defaultResponse;
+            }
+
+            function addMessage(text, isUser = true) {
+                const div = document.createElement('div');
+                div.className = `msg ${isUser ? 'user' : 'bot'}`;
+                const time = new Date().toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit' });
+                div.innerHTML = `${text} <span class="time">${time}</span>`;
+                messages.appendChild(div);
+                messages.scrollTop = messages.scrollHeight;
+            }
+
+            function addTyping() {
+                const div = document.createElement('div');
+                div.className = 'typing';
+                div.id = 'typingIndicator';
+                div.textContent = '🤖 در حال تایپ...';
+                messages.appendChild(div);
+                messages.scrollTop = messages.scrollHeight;
+            }
+
+            function removeTyping() {
+                const el = document.getElementById('typingIndicator');
+                if (el) el.remove();
+            }
+
+            function handleSend() {
+                const text = input.value.trim();
+                if (!text) return;
+
+                addMessage(text, true);
+                input.value = '';
+
+                addTyping();
+                setTimeout(() => {
+                    removeTyping();
+                    const response = getBotResponse(text);
+                    addMessage(response, false);
+                }, 600 + Math.random() * 800);
+            }
+
+            // رویدادها
+            toggle.addEventListener('click', () => {
+                window.classList.toggle('open');
+            });
+
+            close.addEventListener('click', () => {
+                window.classList.remove('open');
+            });
+
+            send.addEventListener('click', handleSend);
+
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    handleSend();
+                }
+            });
+
+            // کپی ایدی (از مودال)
+            const copyBtn = document.getElementById('copyIdBtn');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', function() {
+                    const id = 'mr_donbe9999999';
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(id).then(() => {
+                            alert('✅ ایدی کپی شد: ' + id);
+                        }).catch(() => {
+                            fallbackCopy(id);
+                        });
+                    } else {
+                        fallbackCopy(id);
+                    }
+                });
+            }
+
+            function fallbackCopy(text) {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+                try {
+                    document.execCommand('copy');
+                    alert('✅ ایدی کپی شد: ' + text);
+                } catch (e) {
+                    alert('❌ کپی نشد، لطفاً دستی کپی کن: ' + text);
+                }
+                document.body.removeChild(textarea);
+            }
+
+            console.log('🤖 شومبول‌بات آماده است!');
+        })();
+    </script>
+
+</body>
+</html>
